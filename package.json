@@ -13,6 +13,9 @@
         "import": "./dist/index.mjs"
       },
       "import": "./dist/native.mjs"
+    },
+    "./src/index.js": {
+      "import": "./dist/index.mjs"
     }
   },
   "main": "./lib/index.cjs",
