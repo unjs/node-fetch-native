@@ -23,6 +23,7 @@ A redistribution of [node-fetch v3](https://github.com/node-fetch/node-fetch) fo
 
 ✅ Use native version if imported without `node` condition using [conditional exports](https://nodejs.org/api/packages.html#packages_conditional_exports) with **zero bundle overhead**
 
+✅ Polyfill support for Node.js
 
 ## Usage
 
@@ -49,7 +50,7 @@ import fetch from 'node-fetch-native'
 const fetch = require('node-fetch-native')
 ```
 
-Other exports:
+More named exports:
 
 ```js
 // ESM
@@ -57,6 +58,22 @@ import { fetch, Blob, FormData, Headers, Request, Response } from 'node-fetch-na
 
 // CommonJS
 const { fetch, Blob, FormData, Headers, Request, Response } = require('node-fetch-native')
+```
+
+## Polyfill support
+
+Using the polyfill method, we can once ensure global fetch is available in the environment and all files. Natives are always preferred.
+
+**Note:** I don't recommand this if you are authoring a library! Please prefer explicit methods.
+
+```js
+// ESM
+import 'node-fetch-native/polyfill'
+
+// CJS
+require('node-fetch-native/polyfill')
+
+// You can now use fetch() without any import!
 ```
 
 ## Alias to `node-fetch`

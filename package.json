@@ -1,10 +1,9 @@
 {
   "name": "node-fetch-native",
   "version": "0.1.1",
-  "description": "",
+  "description": "A better redistribution of `node-fetch`",
   "repository": "unjs/node-fetch-native",
   "license": "MIT",
-  "sideEffects": false,
   "type": "module",
   "exports": {
     ".": {
@@ -13,6 +12,13 @@
         "import": "./dist/index.mjs"
       },
       "import": "./dist/native.mjs"
+    },
+    "./polyfill": {
+      "node": {
+        "require": "./dist/polyfill.cjs",
+        "import": "./dist/polyfill.mjs"
+      },
+      "import": "./lib/empty.mjs"
     },
     "./src/index.js": {
       "import": "./dist/index.mjs"

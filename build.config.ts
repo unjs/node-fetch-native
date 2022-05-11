@@ -8,6 +8,7 @@ export default defineBuildConfig({
   },
   entries: [
     'src/index',
-    'src/native'
+    'src/native',
+    'src/polyfill'
   ]
 })
