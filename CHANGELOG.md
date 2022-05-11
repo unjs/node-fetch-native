@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.2](https://github.com/unjs/node-fetch-native/compare/v0.1.1...v0.1.2) (2022-05-11)
+
+
+### Features
+
+* add `AbortController` ([9942b41](https://github.com/unjs/node-fetch-native/commit/9942b41d428b445ff74f868a6a6eaa9dac6b2806))
+* polyfill support ([fb27159](https://github.com/unjs/node-fetch-native/commit/fb271590eaeeecbcaadc11e3a999df0830ec42f4))
+
 ### 0.1.1 (2022-05-11)
 
 
