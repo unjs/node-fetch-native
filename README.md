@@ -43,7 +43,7 @@ You can now either import or require the dependency:
 
 ```js
 // ESM
-import fetch from `node-fetch-native`
+import fetch from 'node-fetch-native'
 
 // CommonJS
 const fetch = require('node-fetch-native')
@@ -53,7 +53,7 @@ Other exports:
 
 ```js
 // ESM
-import { fetch, Blob, FormData, Headers, Request, Response } from `node-fetch-native`
+import { fetch, Blob, FormData, Headers, Request, Response } from 'node-fetch-native'
 
 // CommonJS
 const { fetch, Blob, FormData, Headers, Request, Response } = require('node-fetch-native')
