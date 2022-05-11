@@ -1,24 +1,27 @@
 # node-fetch-native
 
-[![npm version][npm-version-src]][npm-version-href]
-[![npm downloads][npm-downloads-src]][npm-downloads-href]
-[![Github Actions][github-actions-src]][github-actions-href]
+[![][npm-version-src]][npm-version-href]
+[![][github-actions-src]][github-actions-href]
+[![][packagephobia-src]][packagephobia-href]
+<!-- [![npm downloads][npm-downloads-src]][npm-downloads-href] -->
 <!-- [![Codecov][codecov-src]][codecov-href] -->
 
 A redistribution of [node-fetch v3](https://github.com/node-fetch/node-fetch) for better backward and forward compatibility.
 
+**Why this package?**
+
+- We can no longer `require('node-fetch')` with latest version. This stopped popular libraries from upgrading and dependency conflicts between `node-fetch@2` and `node-fetch@3`.
+- With upcoming versions of Node.js, native `fetch` is being supported. We are prepared for native fetch support using this package yet keep supporting older Node versions.
+
+**Features:**
+
 ✅ Prefer to **native globals** when available (`fetch`, `Blob`, `File`, `FormData`, `Headers`, `Request`, and `Response`) (See Node.js [experimental fetch](https://nodejs.org/dist/latest-v17.x/docs/api/cli.html#--experimental-fetch))
 
-✅ Compact build and less install size with **zero dependencies** ([![][packagephobia-src]][packagephobia-href] vs [![][packagephobia-alt-src]][packagephobia-alt-href])
+✅ Compact build and less install size with **zero dependencies** [![][packagephobia-s-src]][packagephobia-s-href] <sup>vs</sup> [![][packagephobia-s-alt-src]][packagephobia-s-alt-href]
 
 ✅ Support both **CommonJS** (`require`) and **ESM** (`import`) usage
 
 ✅ Use native version if imported without `node` condition using [conditional exports](https://nodejs.org/api/packages.html#packages_conditional_exports) with **zero bundle overhead**
-
-Why this package?
-
-- We can no longer `require('node-fetch')` with latest version. This stopped popular libraries from upgrading and dependency conflicts between `node-fetch@2` and `node-fetch@3`.
-- With upcoming versions of Node.js, native `fetch` is being supported. We are prepared for native fetch support using this package yet keep supporting older Node versions.
 
 
 ## Usage
@@ -117,8 +120,11 @@ Made with 💛
 [github-actions-src]: https://flat.badgen.net/github/status/unjs/node-fetch-native/main?style=flat-square
 [github-actions-href]: https://github.com/unjs/node-fetch-native/actions?query=workflow%3Aci
 
-[packagephobia-src]: https://flat.badgen.net/packagephobia/install/node-fetch-native?label=node-fetch-native&scale=.8
-[packagephobia-href]: https://github.com/unjs/node-fetch-native/actions?query=workflow%3Aci
+[packagephobia-src]: https://flat.badgen.net/packagephobia/install/node-fetch-native
+[packagephobia-href]: https://packagephobia.com/result?p=node-fetch-native
 
-[packagephobia-alt-src]: https://flat.badgen.net/packagephobia/install/node-fetch?label=node-fetch-native&scale=.8
-[packagephobia-alt-href]: https://github.com/unjs/node-fetch/actions?query=workflow%3Aci
+[packagephobia-s-src]: https://flat.badgen.net/packagephobia/install/node-fetch-native?label=node-fetch-native&scale=.9
+[packagephobia-s-href]: https://packagephobia.com/result?p=node-fetch-native
+
+[packagephobia-s-alt-src]: https://flat.badgen.net/packagephobia/install/node-fetch?label=node-fetch-native&scale=.9
+[packagephobia-s-alt-href]: https://packagephobia.com/result?p=node-fetch
