@@ -40,6 +40,7 @@
   },
   "devDependencies": {
     "@nuxtjs/eslint-config-typescript": "latest",
+    "abort-controller": "^3.0.0",
     "c8": "latest",
     "eslint": "latest",
     "node-fetch": "^3.2.4",

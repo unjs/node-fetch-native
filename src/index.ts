@@ -7,6 +7,8 @@ import _fetch, {
   Response as _Response
 } from 'node-fetch'
 
+import _AbortController from 'abort-controller'
+
 export const fetch = globalThis.fetch || _fetch
 export default fetch
 
@@ -16,6 +18,7 @@ export const FormData = globalThis.FormData || _FormData
 export const Headers = globalThis.Headers || _Headers
 export const Request = globalThis.Request || _Request
 export const Response = globalThis.Response || _Response
+export const AbortController = globalThis.AbortController || _AbortController
 
 export {
   AbortError,
