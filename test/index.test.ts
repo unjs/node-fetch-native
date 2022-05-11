@@ -9,7 +9,10 @@ import defaultESM from '../dist/index.mjs'
 const require = createRequire(import.meta.url)
 const libCJS = require('../lib/index.cjs')
 
-const expectedExports = ['fetch', 'Blob', 'FormData', 'Headers', 'Request', 'Response', 'AbortController']
+const expectedExports = [
+  'fetch', 'Blob', 'FormData', 'Headers', 'Request', 'Response', 'AbortController',
+  'AbortError', 'FetchError', 'blobFrom', 'blobFromSync', 'fileFrom', 'fileFromSync', 'isRedirect'
+]
 
 const suites = [
   { name: 'cjs', defaultExport: libCJS, exports: libCJS },
