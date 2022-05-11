@@ -126,5 +126,5 @@ Made with 💛
 [packagephobia-s-src]: https://flat.badgen.net/packagephobia/install/node-fetch-native?label=node-fetch-native&scale=.9
 [packagephobia-s-href]: https://packagephobia.com/result?p=node-fetch-native
 
-[packagephobia-s-alt-src]: https://flat.badgen.net/packagephobia/install/node-fetch?label=node-fetch-native&scale=.9
+[packagephobia-s-alt-src]: https://flat.badgen.net/packagephobia/install/node-fetch?label=node-fetch&scale=.9
 [packagephobia-s-alt-href]: https://packagephobia.com/result?p=node-fetch
