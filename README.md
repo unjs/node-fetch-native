@@ -7,18 +7,19 @@
 
 A redistribution of [node-fetch v3](https://github.com/node-fetch/node-fetch) for better backward and forward compatibility.
 
+✅ Prefer to **native globals** when available (`fetch`, `Blob`, `File`, `FormData`, `Headers`, `Request`, and `Response`) (See Node.js [experimental fetch](https://nodejs.org/dist/latest-v17.x/docs/api/cli.html#--experimental-fetch))
+
+✅ Compact build and less install size with **zero dependencies** ([![][packagephobia-src]][packagephobia-href] vs [![][packagephobia-alt-src]][packagephobia-alt-href])
+
+✅ Support both **CommonJS** (`require`) and **ESM** (`import`) usage
+
+✅ Use native version if imported without `node` condition using [conditional exports](https://nodejs.org/api/packages.html#packages_conditional_exports) with **zero bundle overhead**
+
 Why this package?
 
 - We can no longer `require('node-fetch')` with latest version. This stopped popular libraries from upgrading and dependency conflicts between `node-fetch@2` and `node-fetch@3`.
 - With upcoming versions of Node.js, native `fetch` is being supported. We are prepared for native fetch support using this package yet keep supporting older Node versions.
 
-✅ Prefer to **native globals** when available (`fetch`, `Blob`, `File`, `FormData`, `Headers`, `Request`, and `Response`) when available (Node.js [experimental fetch](https://nodejs.org/dist/latest-v17.x/docs/api/cli.html#--experimental-fetch))
-
-✅ Compact build and less install size with **zero dependencies**
-
-✅ Support both **CommonJS** (`require`) and **ESM** (`import`) usage
-
-✅ Use native version if imported without `node` condition using [conditional exports](https://nodejs.org/api/packages.html#packages_conditional_exports) with **zero bundle overhead**
 
 ## Usage
 
@@ -107,14 +108,17 @@ Made with 💛
 [node-fetch is published under the MIT license](https://github.com/node-fetch/node-fetch/blob/main/LICENSE.md)
 
 <!-- Badges -->
-[npm-version-src]: https://img.shields.io/npm/v/node-fetch-native?style=flat-square
+[npm-version-src]: https://flat.badgen.net/npm/v/node-fetch-native
 [npm-version-href]: https://npmjs.com/package/node-fetch-native
 
-[npm-downloads-src]: https://img.shields.io/npm/dm/node-fetch-native?style=flat-square
+[npm-downloads-src]: https://flat.badgen.net/npm/dm/node-fetch-native
 [npm-downloads-href]: https://npmjs.com/package/node-fetch-native
 
-[github-actions-src]: https://img.shields.io/github/workflow/status/unjs/node-fetch-native/ci/main?style=flat-square
+[github-actions-src]: https://flat.badgen.net/github/status/unjs/node-fetch-native/main?style=flat-square
 [github-actions-href]: https://github.com/unjs/node-fetch-native/actions?query=workflow%3Aci
 
-<!-- [codecov-src]: https://img.shields.io/codecov/c/gh/unjs/node-fetch-native/main?style=flat-square
-[codecov-href]: https://codecov.io/gh/unjs/node-fetch-native -->
+[packagephobia-src]: https://flat.badgen.net/packagephobia/install/node-fetch-native?label=node-fetch-native&scale=.8
+[packagephobia-href]: https://github.com/unjs/node-fetch-native/actions?query=workflow%3Aci
+
+[packagephobia-alt-src]: https://flat.badgen.net/packagephobia/install/node-fetch?label=node-fetch-native&scale=.8
+[packagephobia-alt-href]: https://github.com/unjs/node-fetch/actions?query=workflow%3Aci
