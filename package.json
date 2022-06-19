@@ -43,11 +43,11 @@
     "abort-controller": "^3.0.0",
     "c8": "latest",
     "eslint": "latest",
-    "node-fetch": "^3.2.4",
+    "node-fetch": "^3.2.6",
     "standard-version": "latest",
     "typescript": "latest",
     "unbuild": "latest",
     "vitest": "latest"
   },
-  "packageManager": "pnpm@7.1.0"
+  "packageManager": "pnpm@7.3.0"
 }
