@@ -134,7 +134,7 @@ Made with 💛
 [npm-downloads-src]: https://flat.badgen.net/npm/dm/node-fetch-native
 [npm-downloads-href]: https://npmjs.com/package/node-fetch-native
 
-[github-actions-src]: https://flat.badgen.net/github/status/unjs/node-fetch-native/main?style=flat-square
+[github-actions-src]: https://flat.badgen.net/github/checks/unjs/node-fetch-native
 [github-actions-href]: https://github.com/unjs/node-fetch-native/actions?query=workflow%3Aci
 
 [packagephobia-src]: https://flat.badgen.net/packagephobia/install/node-fetch-native
