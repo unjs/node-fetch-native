@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.6](https://github.com/unjs/node-fetch-native/compare/v0.1.5...v0.1.6) (2022-09-20)
+
+
+### Bug Fixes
+
+* add hotfix for stackblitz support ([#10](https://github.com/unjs/node-fetch-native/issues/10)) ([fe77e7a](https://github.com/unjs/node-fetch-native/commit/fe77e7a02c5778e87d487b8a37e0d15c61ef10f7))
+
 ### [0.1.5](https://github.com/unjs/node-fetch-native/compare/v0.1.4...v0.1.5) (2022-09-19)
 
 ### [0.1.4](https://github.com/unjs/node-fetch-native/compare/v0.1.3...v0.1.4) (2022-06-20)
