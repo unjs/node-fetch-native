@@ -1,4 +1,4 @@
-import { defineBuildConfig } from 'unbuild'
+import { defineBuildConfig } from "unbuild";
 
 export default defineBuildConfig({
   declaration: false,
@@ -7,8 +7,8 @@ export default defineBuildConfig({
     inlineDependencies: true
   },
   entries: [
-    'src/index',
-    'src/native',
-    'src/polyfill'
+    "src/index",
+    "src/native",
+    "src/polyfill"
   ]
-})
+});
