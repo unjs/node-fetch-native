@@ -9,9 +9,11 @@
     ".": {
       "node": {
         "require": "./lib/index.cjs",
-        "import": "./dist/index.mjs"
+        "import": "./dist/index.mjs",
+        "types": "./lib/index.d.ts"
       },
-      "import": "./dist/native.mjs"
+      "import": "./dist/native.mjs",
+      "types": "./lib/index.d.ts"
     },
     "./polyfill": {
       "node": {
@@ -21,7 +23,8 @@
       "import": "./lib/empty.mjs"
     },
     "./src/index.js": {
-      "import": "./dist/index.mjs"
+      "import": "./dist/index.mjs",
+      "types": "./lib/index.d.ts"
     }
   },
   "main": "./lib/index.cjs",
