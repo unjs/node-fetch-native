@@ -49,7 +49,7 @@
     "node-fetch": "^3.3.0",
     "standard-version": "^9.5.0",
     "typescript": "^4.9.4",
-    "unbuild": "^0.9.4",
+    "unbuild": "^1.1.1",
     "vitest": "^0.28.1"
   },
   "packageManager": "pnpm@7.25.1"
