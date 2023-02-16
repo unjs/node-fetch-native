@@ -1,6 +1,6 @@
 {
   "name": "node-fetch-native",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A better redistribution of `node-fetch`",
   "repository": "unjs/node-fetch-native",
   "license": "MIT",

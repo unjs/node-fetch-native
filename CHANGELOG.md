@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## v1.0.2
+
+
+### 🏡 Chore
+
+  - **release:** 1.0.1 (abdb2ad)
+  - **release:** 1.0.1 (7eb7dfd)
+  - Update repo (d63453e)
+
+### ❤️  Contributors
+
+- Pooya Parsa <pooya@pi0.io>
+
 ### [1.0.1](https://github.com/unjs/node-fetch-native/compare/v1.0.0...v1.0.1) (2022-11-14)
 
 ## [1.0.0](https://github.com/unjs/node-fetch-native/compare/v0.1.8...v1.0.0) (2022-11-14)
