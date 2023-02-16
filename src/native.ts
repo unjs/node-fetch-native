@@ -6,5 +6,9 @@ export const Request = globalThis.Request;
 export const Response = globalThis.Response;
 export const AbortController = globalThis.AbortController;
 
-export const fetch = globalThis.fetch || (() => { throw new Error("global fetch is not available!"); });
+export const fetch =
+  globalThis.fetch ||
+  (() => {
+    throw new Error("global fetch is not available!");
+  });
 export default fetch;

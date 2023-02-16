@@ -4,11 +4,10 @@ export default defineBuildConfig({
   declaration: false,
   rollup: {
     emitCJS: true,
-    inlineDependencies: true
+    inlineDependencies: true,
+    esbuild: {
+      target: "es2019",
+    },
   },
-  entries: [
-    "src/index",
-    "src/native",
-    "src/polyfill"
-  ]
+  entries: ["src/index", "src/native", "src/polyfill"],
 });

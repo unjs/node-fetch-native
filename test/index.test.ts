@@ -10,13 +10,25 @@ const require = createRequire(import.meta.url);
 const libraryCJS = require("../lib/index.cjs");
 
 const expectedExports = [
-  "fetch", "Blob", "FormData", "Headers", "Request", "Response", "AbortController",
-  "AbortError", "FetchError", "blobFrom", "blobFromSync", "fileFrom", "fileFromSync", "isRedirect"
+  "fetch",
+  "Blob",
+  "FormData",
+  "Headers",
+  "Request",
+  "Response",
+  "AbortController",
+  "AbortError",
+  "FetchError",
+  "blobFrom",
+  "blobFromSync",
+  "fileFrom",
+  "fileFromSync",
+  "isRedirect",
 ];
 
 const suites = [
   { name: "cjs", defaultExport: libraryCJS, exports: libraryCJS },
-  { name: "esm", defaultExport: defaultESM, exports: libraryESM }
+  { name: "esm", defaultExport: defaultESM, exports: libraryESM },
 ];
 
 for (const s of suites) {

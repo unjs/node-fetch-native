@@ -4,7 +4,7 @@ import _fetch, {
   FormData as _FormData,
   Headers as _Headers,
   Request as _Request,
-  Response as _Response
+  Response as _Response,
 } from "node-fetch";
 
 import _AbortController from "abort-controller";
@@ -27,5 +27,5 @@ export {
   blobFromSync,
   fileFrom,
   fileFromSync,
-  isRedirect
+  isRedirect,
 } from "node-fetch";
