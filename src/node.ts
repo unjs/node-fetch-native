@@ -1,13 +1,14 @@
 import _fetch from "node-fetch";
 
-import _AbortController from "abort-controller";
+
 
 export { Blob, File, FormData, Headers, Request, Response } from "node-fetch";
+export { default as AbortController } from "abort-controller";
 
 export const fetch = _fetch;
 export default fetch;
 
-export const AbortController = globalThis.AbortController || _AbortController;
+
 
 export {
   AbortError,
@@ -18,3 +19,4 @@ export {
   fileFromSync,
   isRedirect,
 } from "node-fetch";
+
