@@ -6,5 +6,5 @@ export default defineBuildConfig({
     emitCJS: true,
     inlineDependencies: true,
   },
-  entries: ["src/index", "src/native", "src/polyfill"],
+  entries: ["src/index", "src/native", "src/polyfill", "src/node"],
 });
