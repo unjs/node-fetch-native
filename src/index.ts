@@ -30,7 +30,8 @@ export const FormData = (!_forceNodeFetch && globalThis.FormData) || _FormData;
 export const Headers = (!_forceNodeFetch && globalThis.Headers) || _Headers;
 export const Request = (!_forceNodeFetch && globalThis.Request) || _Request;
 export const Response = (!_forceNodeFetch && globalThis.Response) || _Response;
-export const AbortController = (!_forceNodeFetch && globalThis.AbortController) || _AbortController;
+export const AbortController =
+  (!_forceNodeFetch && globalThis.AbortController) || _AbortController;
 
 export {
   AbortError,
