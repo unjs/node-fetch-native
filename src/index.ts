@@ -9,16 +9,28 @@ import _fetch, {
 
 import _AbortController from "abort-controller";
 
-export const fetch = globalThis.fetch || _fetch;
+const _forceNodeFetch =
+  typeof process !== undefined &&
+  typeof process.env !== undefined &&
+  process.env.FORCE_NODE_FETCH;
+
+function _getFetch() {
+  if (!_forceNodeFetch && globalThis.fetch) {
+    return globalThis.fetch;
+  }
+  return _fetch;
+}
+
+export const fetch = _getFetch();
 export default fetch;
 
-export const Blob = globalThis.Blob || _Blob;
-export const File = globalThis.File || _File;
-export const FormData = globalThis.FormData || _FormData;
-export const Headers = globalThis.Headers || _Headers;
-export const Request = globalThis.Request || _Request;
-export const Response = globalThis.Response || _Response;
-export const AbortController = globalThis.AbortController || _AbortController;
+export const Blob = (!_forceNodeFetch && globalThis.Blob) || _Blob;
+export const File = (!_forceNodeFetch && globalThis.File) || _File;
+export const FormData = (!_forceNodeFetch && globalThis.FormData) || _FormData;
+export const Headers = (!_forceNodeFetch && globalThis.Headers) || _Headers;
+export const Request = (!_forceNodeFetch && globalThis.Request) || _Request;
+export const Response = (!_forceNodeFetch && globalThis.Response) || _Response;
+export const AbortController = (!_forceNodeFetch && globalThis.AbortController) || _AbortController;
 
 export {
   AbortError,

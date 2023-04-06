@@ -22,6 +22,10 @@
       },
       "import": "./lib/empty.mjs"
     },
+    "./node": {
+      "require": "./dist/node.cjs",
+      "import": "./dist/node.mjs"
+    },
     "./src/index.js": {
       "import": "./dist/index.mjs",
       "types": "./lib/index.d.ts"

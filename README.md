@@ -15,7 +15,7 @@ A redistribution of [node-fetch v3](https://github.com/node-fetch/node-fetch) fo
 
 **Features:**
 
-✅ Prefer to **native globals** when available (See Node.js [experimental fetch](https://nodejs.org/dist/latest-v17.x/docs/api/cli.html#--experimental-fetch))
+✅ Prefer to **native globals** when available (See Node.js [experimental fetch](https://nodejs.org/dist/latest-v17.x/docs/api/cli.html#--experimental-fetch)).
 
 ✅ Compact build and less install size with **zero dependencies** [![][packagephobia-s-src]][packagephobia-s-href] <sup>vs</sup> [![][packagephobia-s-alt-src]][packagephobia-s-alt-href]
 
@@ -59,6 +59,15 @@ import { fetch, Blob, FormData, Headers, Request, Response, AbortController } fr
 // CommonJS
 const { fetch, Blob, FormData, Headers, Request, Response, AbortController } = require('node-fetch-native')
 ```
+
+## Force using non-native version
+
+Sometimes you want to explicitly use none native (`node-fetch`) implementation of `fetch` in case of issues with native/polyfill version of `globalThis.fetch` with Node.js or runtime environment.
+
+You have two ways to do this:
+
+- Set `FORCE_NODE_FETCH` environment variable before starting application.
+- Import from `node-fetch-native/node`
 
 ## Polyfill support
 
