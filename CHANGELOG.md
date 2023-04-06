@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## v1.1.0
+
+[compare changes](https://undefined/undefined/compare/v1.0.2...v1.1.0)
+
+
+### 🚀 Enhancements
+
+  - Support `/node` subpath and `FORCE_NODE_FETCH` to use non-native (#66)
+
+### ❤️  Contributors
+
+- Pooya Parsa <pyapar@gmail.com>
+
 ## v1.0.2
 
 
