@@ -13,22 +13,26 @@
         "types": "./lib/index.d.ts"
       },
       "import": "./dist/native.mjs",
-      "types": "./lib/index.d.ts"
+      "types": "./lib/index.d.ts",
+      "default": "./lib/index.cjs"
     },
     "./polyfill": {
       "node": {
         "require": "./dist/polyfill.cjs",
         "import": "./dist/polyfill.mjs"
       },
-      "import": "./lib/empty.mjs"
+      "import": "./lib/empty.mjs",
+      "default": "./dist/polyfill.cjs"
     },
     "./node": {
       "require": "./dist/node.cjs",
-      "import": "./dist/node.mjs"
+      "import": "./dist/node.mjs",
+      "default": "./dist/node.cjs"
     },
     "./src/index.js": {
       "import": "./dist/index.mjs",
-      "types": "./lib/index.d.ts"
+      "types": "./lib/index.d.ts",
+      "default": "./dist/index.cjs"
     }
   },
   "main": "./lib/index.cjs",
