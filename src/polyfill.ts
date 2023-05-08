@@ -9,17 +9,17 @@ import _fetch, {
 
 import _AbortController from "abort-controller";
 
-globalThis.fetch =
-  globalThis.fetch || (_fetch as unknown as typeof globalThis.fetch);
+function polyfill(name: string, impl: any) {
+  if (!(name in globalThis)) {
+    try { globalThis[name] = impl; } catch {}
+  }
+}
 
-globalThis.Blob = globalThis.Blob || _Blob;
-globalThis.File = globalThis.File || _File;
-globalThis.FormData = globalThis.FormData || _FormData;
-globalThis.Headers = globalThis.Headers || _Headers;
-globalThis.Request =
-  globalThis.Request || (_Request as unknown as typeof globalThis.Request);
-globalThis.Response =
-  globalThis.Response || (_Response as unknown as typeof globalThis.Response);
-globalThis.AbortController =
-  globalThis.AbortController ||
-  (_AbortController as unknown as typeof globalThis.AbortController);
+polyfill('fetch', _fetch)
+polyfill('Blob', _Blob)
+polyfill('File', _File)
+polyfill('FormData', _FormData)
+polyfill('Headers', _Headers)
+polyfill('Request', _Request)
+polyfill('Response', _Response)
+polyfill('AbortController', _AbortController)
