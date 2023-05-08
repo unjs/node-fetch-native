@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## v1.1.1
+
+[compare changes](https://undefined/undefined/compare/v1.1.0...v1.1.1)
+
+
+### 🩹 Fixes
+
+  - **polyfill:** Avoid reassigning globals (ef92a04)
+
+### 🏡 Chore
+
+  - Disable broken eslint rule (ec40196)
+  - Update lockfile (00199b3)
+  - Lint (3e36417)
+
+### ❤️  Contributors
+
+- Pooya Parsa ([@pi0](http://github.com/pi0))
+
 ## v1.1.0
 
 [compare changes](https://undefined/undefined/compare/v1.0.2...v1.1.0)
