@@ -11,15 +11,17 @@ import _AbortController from "abort-controller";
 
 function polyfill(name: string, impl: any) {
   if (!(name in globalThis)) {
-    try { globalThis[name] = impl; } catch {}
+    try {
+      globalThis[name] = impl;
+    } catch {}
   }
 }
 
-polyfill('fetch', _fetch)
-polyfill('Blob', _Blob)
-polyfill('File', _File)
-polyfill('FormData', _FormData)
-polyfill('Headers', _Headers)
-polyfill('Request', _Request)
-polyfill('Response', _Response)
-polyfill('AbortController', _AbortController)
+polyfill("fetch", _fetch);
+polyfill("Blob", _Blob);
+polyfill("File", _File);
+polyfill("FormData", _FormData);
+polyfill("Headers", _Headers);
+polyfill("Request", _Request);
+polyfill("Response", _Response);
+polyfill("AbortController", _AbortController);
