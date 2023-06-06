@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## v1.2.0
+
+[compare changes](https://undefined/undefined/compare/v1.1.1...v1.2.0)
+
+
+### 🚀 Enhancements
+
+  - **pkg:** Add export conditions for runtime keys (#75)
+
+### 🏡 Chore
+
+  - Update dev dependencies (72cb8cb)
+
+### ❤️  Contributors
+
+- Pooya Parsa ([@pi0](http://github.com/pi0))
+
 ## v1.1.1
 
 [compare changes](https://undefined/undefined/compare/v1.1.0...v1.1.1)
