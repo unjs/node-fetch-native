@@ -7,6 +7,17 @@
   "type": "module",
   "exports": {
     ".": {
+      "browser": "./dist/native.mjs",
+      "bun": "./dist/native.mjs",
+      "deno": "./dist/native.mjs",
+      "edge-light": "./dist/native.mjs",
+      "edge-routine": "./dist/native.mjs",
+      "lagon": "./dist/native.mjs",
+      "netlify": "./dist/native.mjs",
+      "react-native": "./dist/native.mjs",
+      "wintercg": "./dist/native.mjs",
+      "worker": "./dist/native.mjs",
+      "workerd": "./dist/native.mjs",
       "node": {
         "require": "./lib/index.cjs",
         "import": "./dist/index.mjs",
