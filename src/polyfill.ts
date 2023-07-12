@@ -39,9 +39,16 @@ for (const key in nodeFetchLookup) {
 if (!("AbortController" in globalThis)) {
   Object.defineProperty(globalThis, "AbortController", {
     configurable: true,
-    get() {
+    get: function () {
       // eslint-disable-next-line unicorn/prefer-module
       const AbortController = require("abort-controller");
+
+      Object.defineProperty(globalThis, "AbortController", {
+        value: AbortController,
+        configurable: true,
+        writable: true,
+      });
+
       return AbortController;
     },
   });
