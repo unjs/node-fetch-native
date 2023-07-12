@@ -1,15 +1,19 @@
-import _fetch, {
-  Blob as _Blob,
-  File as _File,
-  FormData as _FormData,
-  Headers as _Headers,
-  Request as _Request,
-  Response as _Response,
-} from "node-fetch";
+import { Blob, File, FormData, Headers, Request, Response } from "node-fetch";
 
-import _AbortController from "abort-controller";
+const nodeFetchLookup = {
+  fetch: (...args) => {
+    // @ts-ignore
+    return import("node-fetch").then(({ default: _fetch }) => _fetch(...args));
+  },
+  Blob,
+  File,
+  FormData,
+  Headers,
+  Request,
+  Response,
+};
 
-function lazyPolyfill(name: string, impl: any) {
+function polyfill(name: string) {
   if (name in globalThis) {
     return;
   }
@@ -17,23 +21,28 @@ function lazyPolyfill(name: string, impl: any) {
   Object.defineProperty(globalThis, name, {
     get: function () {
       Object.defineProperty(globalThis, name, {
-        value: impl,
+        value: nodeFetchLookup[name],
         configurable: true,
-        enumerable: true,
         writable: true,
       });
+
       return globalThis[name];
     },
     configurable: true,
-    enumerable: true,
   });
 }
 
-lazyPolyfill("fetch", _fetch);
-lazyPolyfill("Blob", _Blob);
-lazyPolyfill("File", _File);
-lazyPolyfill("FormData", _FormData);
-lazyPolyfill("Headers", _Headers);
-lazyPolyfill("Request", _Request);
-lazyPolyfill("Response", _Response);
-lazyPolyfill("AbortController", _AbortController);
+for (const key in nodeFetchLookup) {
+  polyfill(key);
+}
+
+if (!("AbortController" in globalThis)) {
+  Object.defineProperty(globalThis, "AbortController", {
+    configurable: true,
+    get() {
+      // eslint-disable-next-line unicorn/prefer-module
+      const AbortController = require("abort-controller");
+      return AbortController;
+    },
+  });
+}
