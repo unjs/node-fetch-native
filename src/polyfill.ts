@@ -15,7 +15,7 @@ function lazyPolyfill(name: string, impl: any) {
   }
 
   Object.defineProperty(globalThis, name, {
-    get: () => {
+    get: function () {
       Object.defineProperty(globalThis, name, {
         value: impl,
         configurable: true,
