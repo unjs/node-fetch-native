@@ -9,19 +9,31 @@ import _fetch, {
 
 import _AbortController from "abort-controller";
 
-function polyfill(name: string, impl: any) {
-  if (!(name in globalThis)) {
-    try {
-      globalThis[name] = impl;
-    } catch {}
+function lazyPolyfill(name: string, impl: any) {
+  if (name in globalThis) {
+    return;
   }
+
+  Object.defineProperty(globalThis, name, {
+    get: () => {
+      Object.defineProperty(globalThis, name, {
+        value: impl,
+        configurable: true,
+        enumerable: true,
+        writable: true,
+      });
+      return globalThis[name];
+    },
+    configurable: true,
+    enumerable: true,
+  });
 }
 
-polyfill("fetch", _fetch);
-polyfill("Blob", _Blob);
-polyfill("File", _File);
-polyfill("FormData", _FormData);
-polyfill("Headers", _Headers);
-polyfill("Request", _Request);
-polyfill("Response", _Response);
-polyfill("AbortController", _AbortController);
+lazyPolyfill("fetch", _fetch);
+lazyPolyfill("Blob", _Blob);
+lazyPolyfill("File", _File);
+lazyPolyfill("FormData", _FormData);
+lazyPolyfill("Headers", _Headers);
+lazyPolyfill("Request", _Request);
+lazyPolyfill("Response", _Response);
+lazyPolyfill("AbortController", _AbortController);
