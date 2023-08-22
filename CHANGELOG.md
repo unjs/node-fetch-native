@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## v1.3.1
+
+[compare changes](https://github.com/unjs/node-fetch-native/compare/v1.3.0...v1.3.1)
+
+### 🔥 Performance
+
+- Minify dist by default ([413e3a3](https://github.com/unjs/node-fetch-native/commit/413e3a3))
+
+### 💅 Refactors
+
+- Reuse exports from `src/node.ts` ([a6e602d](https://github.com/unjs/node-fetch-native/commit/a6e602d))
+
+### 📦 Build
+
+- Fix export conditions ([790232d](https://github.com/unjs/node-fetch-native/commit/790232d))
+- Add backward compatible type exports ([2e8d2aa](https://github.com/unjs/node-fetch-native/commit/2e8d2aa))
+
+### ❤️ Contributors
+
+- Pooya Parsa ([@pi0](http://github.com/pi0))
+
 ## v1.3.0
 
 [compare changes](https://github.com/unjs/node-fetch-native/compare/v1.2.0...v1.3.0)
