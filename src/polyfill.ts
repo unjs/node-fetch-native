@@ -1,55 +1,31 @@
-import { Blob, File, FormData, Headers, Request, Response } from "node-fetch";
+import {
+  Blob as _Blob,
+  File as _File,
+  FormData as _FormData,
+  Headers as _Headers,
+  Request as _Request,
+  Response as _Response,
+} from "node-fetch";
 
-const nodeFetchLookup = {
-  fetch: (...args) => {
-    // @ts-ignore
-    return import("node-fetch").then(({ default: _fetch }) => _fetch(...args));
-  },
-  Blob,
-  File,
-  FormData,
-  Headers,
-  Request,
-  Response,
-};
+// import _AbortController from "abort-controller";
 
-function polyfill(name: string) {
-  if (name in globalThis) {
-    return;
+function polyfill(name: string, impl: any) {
+  if (!(name in globalThis)) {
+    try {
+      globalThis[name] = impl;
+    } catch {}
   }
-
-  Object.defineProperty(globalThis, name, {
-    get: function () {
-      Object.defineProperty(globalThis, name, {
-        value: nodeFetchLookup[name],
-        configurable: true,
-        writable: true,
-      });
-
-      return globalThis[name];
-    },
-    configurable: true,
-  });
 }
 
-for (const key in nodeFetchLookup) {
-  polyfill(key);
-}
+polyfill("fetch", (...args: Parameters<typeof fetch>) =>
+  // @ts-expect-error
+  import("node-fetch").then(({ default: _fetch }) => _fetch(...args))
+);
 
-if (!("AbortController" in globalThis)) {
-  Object.defineProperty(globalThis, "AbortController", {
-    configurable: true,
-    get: function () {
-      // eslint-disable-next-line unicorn/prefer-module
-      const AbortController = require("abort-controller");
-
-      Object.defineProperty(globalThis, "AbortController", {
-        value: AbortController,
-        configurable: true,
-        writable: true,
-      });
-
-      return AbortController;
-    },
-  });
-}
+polyfill("Blob", _Blob);
+polyfill("File", _File);
+polyfill("FormData", _FormData);
+polyfill("Headers", _Headers);
+polyfill("Request", _Request);
+polyfill("Response", _Response);
+// polyfill("AbortController", _AbortController);
