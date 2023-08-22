@@ -9,6 +9,10 @@ import _fetch, {
 
 import _AbortController from "abort-controller";
 
+import { checkNodeEnvironment } from "./_utils";
+
+checkNodeEnvironment();
+
 function polyfill(name: string, impl: any) {
   if (!(name in globalThis)) {
     try {
