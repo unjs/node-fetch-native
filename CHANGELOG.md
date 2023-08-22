@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## v1.3.0
+
+[compare changes](https://github.com/unjs/node-fetch-native/compare/v1.2.0...v1.3.0)
+
+### 🚀 Enhancements
+
+- Add warning for when node polyfill is used in non-node environments ([#90](https://github.com/unjs/node-fetch-native/pull/90))
+
+### 📦 Build
+
+- Missing types for `/polyfill` subpath ([#84](https://github.com/unjs/node-fetch-native/pull/84))
+
+### 🏡 Chore
+
+- Update lockfile ([dc87446](https://github.com/unjs/node-fetch-native/commit/dc87446))
+
+### ❤️ Contributors
+
+- Pooya Parsa ([@pi0](http://github.com/pi0))
+- Nam Nguyen ([@willnguyen1312](http://github.com/willnguyen1312))
+
 ## v1.2.0
 
 [compare changes](https://undefined/undefined/compare/v1.1.1...v1.2.0)
