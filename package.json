@@ -51,7 +51,10 @@
   "module": "./dist/index.mjs",
   "files": [
     "dist",
-    "lib"
+    "lib",
+    "index.d.ts",
+    "node.d.ts",
+    "polyfill.d.ts"
   ],
   "scripts": {
     "build": "unbuild",
