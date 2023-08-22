@@ -5,6 +5,9 @@ export default defineBuildConfig({
   rollup: {
     emitCJS: true,
     inlineDependencies: true,
+    esbuild: {
+      minify: true,
+    },
   },
   entries: ["src/index", "src/native", "src/polyfill", "src/node"],
 });
