@@ -7,6 +7,7 @@
   "type": "module",
   "exports": {
     ".": {
+      "types": "./lib/index.d.ts",
       "browser": "./dist/native.mjs",
       "bun": "./dist/native.mjs",
       "deno": "./dist/native.mjs",
@@ -19,33 +20,35 @@
       "worker": "./dist/native.mjs",
       "workerd": "./dist/native.mjs",
       "node": {
-        "require": "./lib/index.cjs",
         "import": "./dist/index.mjs",
-        "types": "./lib/index.d.ts"
+        "require": "./lib/index.cjs"
       },
       "import": "./dist/native.mjs",
-      "types": "./lib/index.d.ts"
+      "require": "./dist/native.cjs"
     },
     "./polyfill": {
       "types": "./lib/polyfill.d.ts",
       "node": {
-        "require": "./dist/polyfill.cjs",
-        "import": "./dist/polyfill.mjs"
+        "import": "./dist/polyfill.mjs",
+        "require": "./dist/polyfill.cjs"
       },
-      "import": "./lib/empty.mjs"
+      "import": "./lib/empty.mjs",
+      "require": "./lib/empty.mjs"
     },
     "./node": {
-      "require": "./dist/node.cjs",
-      "import": "./dist/node.mjs"
+      "types": "./lib/index.d.ts",
+      "import": "./dist/node.mjs",
+      "require": "./dist/node.cjs"
     },
     "./src/index.js": {
+      "types": "./lib/index.d.ts",
       "import": "./dist/index.mjs",
-      "types": "./lib/index.d.ts"
+      "require": "./lib/index.cjs"
     }
   },
+  "types": "./lib/index.d.ts",
   "main": "./lib/index.cjs",
   "module": "./dist/index.mjs",
-  "types": "./lib/index.d.ts",
   "files": [
     "dist",
     "lib"
@@ -67,7 +70,7 @@
     "node-fetch": "^3.3.2",
     "prettier": "^3.0.2",
     "typescript": "^5.1.6",
-    "unbuild": "^1.2.1",
+    "unbuild": "^2.0.0",
     "vitest": "^0.34.2"
   },
   "packageManager": "pnpm@8.6.12"
