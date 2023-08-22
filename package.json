@@ -27,10 +27,10 @@
       "types": "./lib/index.d.ts"
     },
     "./polyfill": {
+      "types": "./lib/polyfill.d.ts",
       "node": {
         "require": "./dist/polyfill.cjs",
-        "import": "./dist/polyfill.mjs",
-        "types": "./polyfill.d.ts"
+        "import": "./dist/polyfill.mjs"
       },
       "import": "./lib/empty.mjs"
     },
@@ -48,8 +48,7 @@
   "types": "./lib/index.d.ts",
   "files": [
     "dist",
-    "lib",
-    "./polyfill.d.ts"
+    "lib"
   ],
   "scripts": {
     "build": "unbuild",
