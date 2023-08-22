@@ -4,7 +4,7 @@ import { checkNodeEnvironment } from "./_utils";
 export { Blob, File, FormData, Headers, Request, Response } from "node-fetch";
 export { default as AbortController } from "abort-controller";
 
-checkNodeEnvironment()
+checkNodeEnvironment();
 
 export const fetch = _fetch;
 export default fetch;
