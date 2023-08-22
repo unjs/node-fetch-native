@@ -7,7 +7,6 @@
   "type": "module",
   "exports": {
     ".": {
-      "types": "./lib/index.d.ts",
       "browser": "./dist/native.mjs",
       "bun": "./dist/native.mjs",
       "deno": "./dist/native.mjs",
@@ -20,33 +19,58 @@
       "worker": "./dist/native.mjs",
       "workerd": "./dist/native.mjs",
       "node": {
-        "import": "./dist/index.mjs",
-        "require": "./lib/index.cjs"
+        "import": {
+          "types": "./lib/index.d.mts",
+          "default": "./dist/index.mjs"
+        },
+        "require": {
+          "types": "./lib/index.d.cts",
+          "default": "./lib/index.cjs"
+        }
       },
+      "types": "./lib/index.d.mts",
       "import": "./dist/native.mjs",
-      "require": "./dist/native.cjs"
+      "require": "./dist/native.cjs",
+      "default": "./dist/native.mjs"
     },
     "./polyfill": {
-      "types": "./lib/polyfill.d.ts",
       "node": {
-        "import": "./dist/polyfill.mjs",
-        "require": "./dist/polyfill.cjs"
+        "import": {
+          "types": "./lib/polyfill.d.mts",
+          "default": "./dist/polyfill.mjs"
+        },
+        "require": {
+          "types": "./lib/polyfill.d.cts",
+          "default": "./dist/polyfill.cjs"
+        }
       },
+      "types": "./lib/polyfill.d.mts",
       "import": "./lib/empty.mjs",
-      "require": "./lib/empty.mjs"
+      "require": "./lib/empty.cjs",
+      "default": "./lib/empty.mjs"
     },
     "./node": {
-      "types": "./lib/index.d.ts",
-      "import": "./dist/node.mjs",
-      "require": "./dist/node.cjs"
+      "import": {
+        "types": "./lib/index.d.mts",
+        "default": "./dist/node.mjs"
+      },
+      "require": {
+        "types": "./lib/index.d.cts",
+        "default": "./dist/node.cjs"
+      }
     },
     "./src/index.js": {
-      "types": "./lib/index.d.ts",
-      "import": "./dist/index.mjs",
-      "require": "./lib/index.cjs"
+      "import": {
+        "types": "./lib/index.d.mts",
+        "default": "./dist/index.mjs"
+      },
+      "require": {
+        "types": "./lib/index.d.cts",
+        "default": "./lib/index.cjs"
+      }
     }
   },
-  "types": "./lib/index.d.ts",
+  "types": "./lib/index.d.mts",
   "main": "./lib/index.cjs",
   "module": "./dist/index.mjs",
   "files": [
