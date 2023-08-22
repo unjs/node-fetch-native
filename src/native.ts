@@ -9,6 +9,8 @@ export const AbortController = globalThis.AbortController;
 export const fetch =
   globalThis.fetch ||
   (() => {
-    throw new Error("global fetch is not available!");
+    throw new Error(
+      "[node-fetch-native] Failed to fetch: `globalThis.fetch` is not available!",
+    );
   });
 export default fetch;

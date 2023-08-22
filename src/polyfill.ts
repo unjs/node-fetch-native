@@ -1,17 +1,13 @@
-import _fetch, {
+import {
+  fetch as _fetch,
   Blob as _Blob,
   File as _File,
   FormData as _FormData,
   Headers as _Headers,
   Request as _Request,
   Response as _Response,
-} from "node-fetch";
-
-import _AbortController from "abort-controller";
-
-import { checkNodeEnvironment } from "./_utils";
-
-checkNodeEnvironment();
+  AbortController as _AbortController,
+} from "./node";
 
 function polyfill(name: string, impl: any) {
   if (!(name in globalThis)) {

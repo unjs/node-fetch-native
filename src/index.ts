@@ -1,18 +1,25 @@
-import _fetch, {
+import {
+  fetch as _fetch,
+  AbortController as _AbortController,
   Blob as _Blob,
   File as _File,
   FormData as _FormData,
   Headers as _Headers,
   Request as _Request,
   Response as _Response,
-} from "node-fetch";
+} from "./node";
 
-import _AbortController from "abort-controller";
+export {
+  AbortError,
+  FetchError,
+  blobFrom,
+  blobFromSync,
+  fileFrom,
+  fileFromSync,
+  isRedirect,
+} from "./node";
 
-const _forceNodeFetch =
-  typeof process !== undefined &&
-  typeof process.env !== undefined &&
-  process.env.FORCE_NODE_FETCH;
+const _forceNodeFetch = !!globalThis.process?.env?.FORCE_NODE_FETCH;
 
 function _getFetch() {
   if (!_forceNodeFetch && globalThis.fetch) {
@@ -32,13 +39,3 @@ export const Request = (!_forceNodeFetch && globalThis.Request) || _Request;
 export const Response = (!_forceNodeFetch && globalThis.Response) || _Response;
 export const AbortController =
   (!_forceNodeFetch && globalThis.AbortController) || _AbortController;
-
-export {
-  AbortError,
-  FetchError,
-  blobFrom,
-  blobFromSync,
-  fileFrom,
-  fileFromSync,
-  isRedirect,
-} from "node-fetch";
