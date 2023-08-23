@@ -59,6 +59,16 @@
         "default": "./dist/node.cjs"
       }
     },
+    "./native": {
+      "import": {
+        "types": "./lib/index.d.mts",
+        "default": "./dist/native.mjs"
+      },
+      "require": {
+        "types": "./lib/index.d.cts",
+        "default": "./lib/native.cjs"
+      }
+    },
     "./src/index.js": {
       "import": {
         "types": "./lib/index.d.mts",
