@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## v1.4.0
+
+[compare changes](https://github.com/unjs/node-fetch-native/compare/v1.3.3...v1.4.0)
+
+### 🚀 Enhancements
+
+- Add explicit `/native` subpath ([4a917e5](https://github.com/unjs/node-fetch-native/commit/4a917e5))
+
+### 🩹 Fixes
+
+- Use soft warning for node bundle warn ([f46566f](https://github.com/unjs/node-fetch-native/commit/f46566f))
+
+### ❤️ Contributors
+
+- Pooya Parsa ([@pi0](http://github.com/pi0))
+
 ## v1.3.3
 
 [compare changes](https://github.com/unjs/node-fetch-native/compare/v1.3.2...v1.3.3)
