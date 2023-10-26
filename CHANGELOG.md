@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## v1.4.1
+
+[compare changes](https://github.com/unjs/node-fetch-native/compare/v1.4.0...v1.4.1)
+
+### 📦 Build
+
+- Add top level `react-native` field to `package.json` ([#98](https://github.com/unjs/node-fetch-native/pull/98))
+
+### 🏡 Chore
+
+- Update dependencies ([4d451d6](https://github.com/unjs/node-fetch-native/commit/4d451d6))
+- Sort package-json ([1cca824](https://github.com/unjs/node-fetch-native/commit/1cca824))
+
+### ❤️ Contributors
+
+- Pooya Parsa ([@pi0](http://github.com/pi0))
+- Rui Ying ([@robertying](http://github.com/robertying))
+
 ## v1.4.0
 
 [compare changes](https://github.com/unjs/node-fetch-native/compare/v1.3.3...v1.4.0)
