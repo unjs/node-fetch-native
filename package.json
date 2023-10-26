@@ -83,6 +83,7 @@
   "types": "./lib/index.d.mts",
   "main": "./lib/index.cjs",
   "module": "./dist/index.mjs",
+  "react-native": "./dist/native.mjs",
   "files": [
     "dist",
     "lib",
