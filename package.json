@@ -80,10 +80,10 @@
       }
     }
   },
-  "types": "./lib/index.d.mts",
   "main": "./lib/index.cjs",
   "module": "./dist/index.mjs",
   "react-native": "./dist/native.mjs",
+  "types": "./lib/index.d.mts",
   "files": [
     "dist",
     "lib",
