@@ -7,7 +7,12 @@ import { HttpProxyAgent } from "http-proxy-agent";
 import { HttpsProxyAgent } from "https-proxy-agent";
 
 export function createProxy(opts: { url?: string } = {}) {
-  const uri = opts.url || process.env.HTTPS_PROXY || process.env.HTTP_PROXY;
+  const uri =
+    opts.url ||
+    process.env.HTTPS_PROXY ||
+    process.env.https_proxy ||
+    process.env.HTTP_PROXY ||
+    process.env.http_proxy;
 
   if (!uri) {
     return {

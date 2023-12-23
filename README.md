@@ -129,7 +129,7 @@ await fetch("https://google.com", {
 
 `createProxy` returns an object with `agent` for older Node.js versions and `dispatcher` keys for newer Node.js versions with Undici and native fetch.
 
-If no `url` option is provided, `HTTPS_PROXY` or `HTTP_PROXY` values will be used, and if they also are not set, both `agent` and `dispatcher` values will be undefined.
+If no `url` option is provided, `HTTPS_PROXY` or `HTTP_PROXY` (or lowercase) environment variables will be used, and if they also are not set, both `agent` and `dispatcher` values will be undefined.
 
 > [!NOTE]
 > Using export conditions, this utility works in Node.js and for other runtimes, it will simply return a stubbed version as most of the other runtimes now support HTTP proxy out of the box!
