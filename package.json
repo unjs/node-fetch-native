@@ -78,6 +78,24 @@
         "types": "./lib/index.d.cts",
         "default": "./lib/index.cjs"
       }
+    },
+    "./proxy": {
+      "node": {
+        "require": {
+          "types": "./lib/proxy.d.cts",
+          "default": "./dist/proxy.cjs"
+        }
+      },
+      "default": {
+        "import": {
+          "types": "./lib/proxy.d.mts",
+          "default": "./dist/proxy-stub.mjs"
+        },
+        "require": {
+          "types": "./lib/proxy.d.cts",
+          "default": "./dist/proxy-stub.cjs"
+        }
+      }
     }
   },
   "main": "./lib/index.cjs",
@@ -100,15 +118,21 @@
     "test": "pnpm lint && pnpm build && vitest run --coverage"
   },
   "devDependencies": {
+    "@types/node": "^20.10.5",
     "@vitest/coverage-v8": "^1.1.0",
     "abort-controller": "^3.0.0",
+    "agent-base": "^7.1.0",
     "changelogen": "^0.5.5",
     "eslint": "^8.56.0",
     "eslint-config-unjs": "^0.2.1",
+    "http-proxy-agent": "^7.0.0",
+    "https-proxy-agent": "^7.0.2",
     "node-fetch": "^3.3.2",
     "prettier": "^3.1.1",
+    "proxy-agent": "^6.3.1",
     "typescript": "^5.3.3",
     "unbuild": "^2.0.0",
+    "undici": "^6.2.1",
     "vitest": "^1.1.0"
   },
   "packageManager": "pnpm@8.12.1"
