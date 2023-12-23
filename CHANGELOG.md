@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## v1.5.1
+
+[compare changes](https://github.com/unjs/node-fetch-native/compare/v1.5.0...v1.5.1)
+
+### 🩹 Fixes
+
+- **proxy:** Support lower-case environment variables too ([144996b](https://github.com/unjs/node-fetch-native/commit/144996b))
+
+### 📦 Build
+
+- Add backward compatible types for `/proxy` subpath export ([584ee24](https://github.com/unjs/node-fetch-native/commit/584ee24))
+
+### ❤️ Contributors
+
+- Pooya Parsa ([@pi0](http://github.com/pi0))
+
 ## v1.5.0
 
 [compare changes](https://github.com/unjs/node-fetch-native/compare/v1.4.1...v1.5.0)
