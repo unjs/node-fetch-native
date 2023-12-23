@@ -80,33 +80,6 @@ const {
 } = require("node-fetch-native");
 ```
 
-## Proxy support
-
-Node.js has no built-in support for HTTP Proxies for fetch (see [nodejs/undici#1650](https://github.com/nodejs/undici/issues/1650) and [nodejs/node#8381](https://github.com/nodejs/node/issues/8381))
-
-This package bundles a compact and simple proxy supported for both Node.js versions without native fetch using [HTTP Agent](https://github.com/TooTallNate/proxy-agents/tree/main/packages/proxy-agent) and versions with native fetch using [Undici Proxy Agent](https://undici.nodejs.org/#/docs/api/ProxyAgent).
-
-**Usage:**
-
-```ts
-import { fetch } from "node-fetch-native"; // or use global fetch
-import { createProxy } from "node-fetch-native/proxy";
-
-const proxy = createProxy(); // Uses HTTPS_PROXY or HTTP_PROXY by default
-
-const proxy = createProxy({ url: "http://localhost:8080" });
-
-await fetch("https://google.com", {
-  ...proxy,
-});
-```
-
-`createProxy` returns an object with `agent` for older Node.js versions and `dispatcher` keys for newer Node.js versions with Undici and native fetch.
-
-If no `url` option is provided, `HTTPS_PROXY` or `HTTP_PROXY` values will be used, and if they also are not set, both `agent` and `dispatcher` values will be undefined.
-
-**Note:** Using export conditions, this utility works in Node.js and for other runtimes, it will simply return a stubbed version as most of the other runtimes now support HTTP proxy out of the box!
-
 ## Force using non-native version
 
 Sometimes you want to explicitly use none native (`node-fetch`) implementation of `fetch` in case of issues with the native/polyfill version of `globalThis.fetch` with Node.js or runtime environment.
@@ -131,6 +104,38 @@ require("node-fetch-native/polyfill");
 
 // You can now use fetch() without any import!
 ```
+
+## Proxy Support
+
+Node.js has no built-in support for HTTP Proxies for fetch (see [nodejs/undici#1650](https://github.com/nodejs/undici/issues/1650) and [nodejs/node#8381](https://github.com/nodejs/node/issues/8381))
+
+This package bundles a compact and simple proxy supported for both Node.js versions without native fetch using [HTTP Agent](https://github.com/TooTallNate/proxy-agents/tree/main/packages/proxy-agent) and versions with native fetch using [Undici Proxy Agent](https://undici.nodejs.org/#/docs/api/ProxyAgent).
+
+**Usage:**
+
+```ts
+import { fetch } from "node-fetch-native"; // or use global fetch
+import { createProxy } from "node-fetch-native/proxy";
+
+// Uses HTTPS_PROXY or HTTP_PROXY environment variables
+const proxy = createProxy();
+
+// const proxy = createProxy({ url: "http://localhost:8080" });
+
+await fetch("https://google.com", {
+  ...proxy,
+});
+```
+
+`createProxy` returns an object with `agent` for older Node.js versions and `dispatcher` keys for newer Node.js versions with Undici and native fetch.
+
+If no `url` option is provided, `HTTPS_PROXY` or `HTTP_PROXY` values will be used, and if they also are not set, both `agent` and `dispatcher` values will be undefined.
+
+> [!NOTE]
+> Using export conditions, this utility works in Node.js and for other runtimes, it will simply return a stubbed version as most of the other runtimes now support HTTP proxy out of the box!
+
+> [!NOTE]
+> Proxy support is under development. Check [unjs/node-fetch-native#107](https://github.com/unjs/node-fetch-native/issues/107) for the roadmap and contributing!
 
 ## Alias to `node-fetch`
 
