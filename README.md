@@ -3,17 +3,17 @@
 [![][npm-version-src]][npm-version-href]
 [![][github-actions-src]][github-actions-href]
 [![][packagephobia-src]][packagephobia-href]
+[![npm downloads][npm-downloads-src]][npm-downloads-href]
 
-<!-- [![npm downloads][npm-downloads-src]][npm-downloads-href] -->
 <!-- [![Codecov][codecov-src]][codecov-href] -->
 
 A redistribution of [node-fetch v3](https://github.com/node-fetch/node-fetch) (+ more!) for better backward and forward compatibility.
 
 **Why this package?**
 
-- We can no longer `require('node-fetch')` with latest version. This stopped popular libraries from upgrading and dependency conflicts between `node-fetch@2` and `node-fetch@3`.
+- We can no longer `require('node-fetch')` with the latest version. This stopped popular libraries from upgrading and dependency conflicts between `node-fetch@2` and `node-fetch@3`.
 - With upcoming versions of Node.js, native `fetch` is being supported. We are prepared for native fetch support using this package yet keep supporting older Node versions.
-- With introduction of native fetch to Node.js via [undici](https://github.com/nodejs/undici) there is no easy way to support http proxies!
+- With the introduction of native fetch to Node.js via [undici](https://github.com/nodejs/undici) there is no easy way to support http proxies!
 
 **Features:**
 
@@ -101,26 +101,26 @@ await fetch("https://google.com", {
 });
 ```
 
-`createProxy` returns an object with `agent` for older Node.js version and `dispatcher` keys for newer Node.js versions with undici and native fetch.
+`createProxy` returns an object with `agent` for older Node.js versions and `dispatcher` keys for newer Node.js versions with Undici and native fetch.
 
-If no `url` option is provided, `HTTPS_PROXY` or `HTTP_PROXY` value will be used and if they also are not set, both `agent` and `dispatcher` values will be undefined.
+If no `url` option is provided, `HTTPS_PROXY` or `HTTP_PROXY` values will be used, and if they also are not set, both `agent` and `dispatcher` values will be undefined.
 
-**Note:** Using export conditions, this utility works in Node.js and for other runtimes, it will simply return an stubbed version as most of other runtimes now support http proxy out of the box!
+**Note:** Using export conditions, this utility works in Node.js and for other runtimes, it will simply return a stubbed version as most of the other runtimes now support HTTP proxy out of the box!
 
 ## Force using non-native version
 
-Sometimes you want to explicitly use none native (`node-fetch`) implementation of `fetch` in case of issues with native/polyfill version of `globalThis.fetch` with Node.js or runtime environment.
+Sometimes you want to explicitly use none native (`node-fetch`) implementation of `fetch` in case of issues with the native/polyfill version of `globalThis.fetch` with Node.js or runtime environment.
 
 You have two ways to do this:
 
-- Set `FORCE_NODE_FETCH` environment variable before starting application.
+- Set `FORCE_NODE_FETCH` environment variable before starting the application.
 - Import from `node-fetch-native/node`
 
 ## Polyfill support
 
-Using the polyfill method, we can once ensure global fetch is available in the environment and all files. Natives are always preferred.
+Using the polyfill method, we can ensure global fetch is available in the environment and all files. Natives are always preferred.
 
-**Note:** I don't recommand this if you are authoring a library! Please prefer explicit methods.
+**Note:** I don't recommend this if you are authoring a library! Please prefer explicit methods.
 
 ```js
 // ESM
