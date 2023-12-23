@@ -82,9 +82,9 @@ const {
 
 ## Proxy support
 
-Currently Node.js has no standard way to support HTTP Proxies.
+Node.js has no built-in support for HTTP Proxies for fetch ([see nodejs/undici#1650](https://github.com/nodejs/undici/issues/1650) and [nodejs/node#8381](https://github.com/nodejs/node/issues/8381))
 
-This package exports a compact and simple proxy supporting both Node.js versions without native fetch using [HTTP Agent](https://github.com/TooTallNate/proxy-agents/tree/main/packages/proxy-agent) and versions with native fetch using [Undici Proxy Agent](https://undici.nodejs.org/#/docs/api/ProxyAgent).
+This package bundles a compact and simple proxy supported for both Node.js versions without native fetch using [HTTP Agent](https://github.com/TooTallNate/proxy-agents/tree/main/packages/proxy-agent) and versions with native fetch using [Undici Proxy Agent](https://undici.nodejs.org/#/docs/api/ProxyAgent).
 
 **Usage:**
 
@@ -101,11 +101,11 @@ await fetch("https://google.com", {
 });
 ```
 
-`createProxy` returns an object with `agent` (for older Node.js) and `dispatcher` keys (for newer Node.js)
+`createProxy` returns an object with `agent` for older Node.js version and `dispatcher` keys for newer Node.js versions with undici and native fetch.
 
 If no `url` option is provided, `HTTPS_PROXY` or `HTTP_PROXY` value will be used and if they also are not set, both `agent` and `dispatcher` values will be undefined.
 
-**Note:** Using export conditions, this utility works in Node.js and for other runtimes, it will simply return an stubed version as most of other runtimes now support http proxy out of the box!
+**Note:** Using export conditions, this utility works in Node.js and for other runtimes, it will simply return an stubbed version as most of other runtimes now support http proxy out of the box!
 
 ## Force using non-native version
 
