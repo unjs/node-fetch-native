@@ -1,3 +1,5 @@
+import { rm } from "node:fs/promises";
+import { resolve } from "node:path";
 import { defineBuildConfig } from "unbuild";
 
 export default defineBuildConfig({
@@ -13,5 +15,18 @@ export default defineBuildConfig({
       keepNames: true,
     },
   },
-  entries: ["src/index", "src/native", "src/polyfill", "src/node"],
+  entries: [
+    "src/index",
+    "src/native",
+    "src/polyfill",
+    "src/node",
+    "src/proxy",
+    "src/proxy-stub",
+  ],
+  hooks: {
+    async "build:done"(ctx) {
+      // Save few bytes from dist...
+      await rm(resolve(ctx.options.outDir, "proxy.mjs"));
+    },
+  },
 });
