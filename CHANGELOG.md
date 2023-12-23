@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## v1.5.0
+
+[compare changes](https://github.com/unjs/node-fetch-native/compare/v1.4.1...v1.5.0)
+
+### 🚀 Enhancements
+
+- Http proxy util ([#106](https://github.com/unjs/node-fetch-native/pull/106))
+
+### 🏡 Chore
+
+- Update lockfile ([586fde5](https://github.com/unjs/node-fetch-native/commit/586fde5))
+- Update readme ([f6dd60d](https://github.com/unjs/node-fetch-native/commit/f6dd60d))
+- Update description ([faea9f8](https://github.com/unjs/node-fetch-native/commit/faea9f8))
+
+### ❤️ Contributors
+
+- Pooya Parsa ([@pi0](http://github.com/pi0))
+
 ## v1.4.1
 
 [compare changes](https://github.com/unjs/node-fetch-native/compare/v1.4.0...v1.4.1)
