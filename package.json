@@ -111,7 +111,8 @@
     "lib",
     "index.d.ts",
     "node.d.ts",
-    "polyfill.d.ts"
+    "polyfill.d.ts",
+    "proxy.d.ts"
   ],
   "scripts": {
     "build": "unbuild",
