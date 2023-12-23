@@ -1,7 +1,7 @@
 {
   "name": "node-fetch-native",
   "version": "1.4.1",
-  "description": "A better redistribution of `node-fetch`",
+  "description": "better fetch for Node.js. Works on any JavaScript runtime!",
   "repository": "unjs/node-fetch-native",
   "license": "MIT",
   "type": "module",
