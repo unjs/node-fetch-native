@@ -82,21 +82,21 @@
     "./proxy": {
       "node": {
         "import": {
-          "types": "./lib/proxy.d.mts",
+          "types": "./lib/proxy.d.ts",
           "default": "./dist/proxy.cjs"
         },
         "require": {
-          "types": "./lib/proxy.d.cts",
+          "types": "./lib/proxy.d.ts",
           "default": "./dist/proxy.cjs"
         }
       },
       "default": {
         "import": {
-          "types": "./lib/proxy.d.mts",
+          "types": "./lib/proxy.d.ts",
           "default": "./dist/proxy-stub.mjs"
         },
         "require": {
-          "types": "./lib/proxy.d.cts",
+          "types": "./lib/proxy.d.ts",
           "default": "./dist/proxy-stub.cjs"
         }
       }

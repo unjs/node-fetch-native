@@ -5,8 +5,10 @@ import { ProxyAgent as UndiciProxyAgent } from "undici";
 import { Agent, AgentConnectOpts } from "agent-base";
 import { HttpProxyAgent } from "http-proxy-agent";
 import { HttpsProxyAgent } from "https-proxy-agent";
+import type { ProxyOptions } from "../proxy";
+import { fetch as _fetch } from "node-fetch-native";
 
-export function createProxy(opts: { url?: string } = {}) {
+export function createProxy(opts: ProxyOptions = {}) {
   const uri =
     opts.url ||
     process.env.HTTPS_PROXY ||
@@ -31,6 +33,17 @@ export function createProxy(opts: { url?: string } = {}) {
     dispatcher: undiciAgent,
   };
 }
+
+export function createFetch(proxyOptions: ProxyOptions = {}) {
+  const proxy = createProxy(proxyOptions);
+  return (url, fetchOptions) => _fetch(url, { ...proxy, ...fetchOptions });
+}
+
+export const fetch = createFetch({});
+
+// ----------------------------------------------
+// Utils
+// ----------------------------------------------
 
 export function debug(...args: any[]) {
   if (process.env.debug) {

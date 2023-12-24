@@ -1,1 +1,1 @@
-export * from "./lib/proxy.mjs";
+export * from "./lib/proxy";
