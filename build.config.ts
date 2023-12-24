@@ -23,6 +23,7 @@ export default defineBuildConfig({
     "src/proxy",
     "src/proxy-stub",
   ],
+  externals: ["node-fetch-native"],
   hooks: {
     async "build:done"(ctx) {
       // Save few bytes from dist...

@@ -5,8 +5,8 @@ import { ProxyAgent as UndiciProxyAgent } from "undici";
 import { Agent, AgentConnectOpts } from "agent-base";
 import { HttpProxyAgent } from "http-proxy-agent";
 import { HttpsProxyAgent } from "https-proxy-agent";
-import type { ProxyOptions } from "../proxy";
 import { fetch as _fetch } from "node-fetch-native";
+import type { ProxyOptions } from "../proxy";
 
 export function createProxy(opts: ProxyOptions = {}) {
   const uri =
