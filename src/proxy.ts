@@ -1,7 +1,7 @@
 import * as http from "node:http";
 import * as https from "node:https";
 import { URL } from "node:url";
-import { ProxyAgent as UndiciProxyAgent } from "undici";
+import { Agent as _UndiciAgent, ProxyAgent as _UndiciProxyAgent } from "undici";
 import { Agent, AgentConnectOpts } from "agent-base";
 import { HttpProxyAgent } from "http-proxy-agent";
 import { HttpsProxyAgent } from "https-proxy-agent";
@@ -23,10 +23,16 @@ export function createProxy(opts: ProxyOptions = {}) {
     };
   }
 
-  const nodeAgent = new NodeProxyAgent({ uri });
+  const _noProxy = opts.noProxy || process.env.no_proxy || process.env.NO_PROXY;
+  const noProxy = typeof _noProxy === "string" ? _noProxy.split(",") : _noProxy;
+
+  const nodeAgent = new NodeProxyAgent({ uri, noProxy });
 
   // https://undici.nodejs.org/#/docs/api/ProxyAgent
-  const undiciAgent = new UndiciProxyAgent({ uri });
+  const undiciAgent = new UndiciProxyAgent({
+    uri,
+    noProxy,
+  });
 
   return {
     agent: nodeAgent,
@@ -45,9 +51,47 @@ export const fetch = createFetch({});
 // Utils
 // ----------------------------------------------
 
-export function debug(...args: any[]) {
-  if (process.env.debug) {
-    debug("[node-fetch-native] [proxy]", ...args);
+function debug(...args: any[]) {
+  if (process.env.DEBUG) {
+    console.debug("[node-fetch-native] [proxy]", ...args);
+  }
+}
+
+function bypassProxy(host: string, noProxy: string[]) {
+  if (!noProxy) {
+    return false;
+  }
+  for (const _host of noProxy) {
+    if (_host === host || (_host[0] === "." && host.endsWith(_host.slice(1)))) {
+      return true;
+    }
+  }
+  return false;
+}
+
+// ----------------------------------------------
+// Undici Agent
+// ----------------------------------------------
+
+// https://github.com/nodejs/undici/blob/main/lib/proxy-agent.js
+
+class UndiciProxyAgent extends _UndiciProxyAgent {
+  _agent: _UndiciAgent;
+
+  constructor(
+    private _options: _UndiciProxyAgent.Options & { noProxy: string[] },
+  ) {
+    super(_options);
+    this._agent = new _UndiciAgent();
+  }
+
+  dispatch(options, handler): boolean {
+    const hostname = new URL(options.origin).hostname;
+    if (bypassProxy(hostname, this._options.noProxy)) {
+      debug(`Bypassing proxy for: ${hostname}`);
+      return this._agent.dispatch(options, handler);
+    }
+    return super.dispatch(options, handler);
   }
 }
 
@@ -73,15 +117,14 @@ function isValidProtocol(v: string): v is ValidProtocol {
   return (PROTOCOLS as readonly string[]).includes(v);
 }
 
-export class NodeProxyAgent extends Agent {
+class NodeProxyAgent extends Agent {
   cache: Map<string, Agent> = new Map();
 
   httpAgent: http.Agent;
   httpsAgent: http.Agent;
 
-  constructor(private proxyOptions: { uri: string }) {
+  constructor(private _options: { uri: string; noProxy: string[] }) {
     super({});
-    debug("Creating new ProxyAgent instance: %o", proxyOptions);
     this.httpAgent = new http.Agent({});
     this.httpsAgent = new https.Agent({});
   }
@@ -94,33 +137,26 @@ export class NodeProxyAgent extends Agent {
       ? (isWebSocket ? "wss:" : "https:")
       : (isWebSocket ? "ws:" : "http:");
 
-    const host = req.getHeader("host");
-    const url = new URL(req.path, `${protocol}//${host}`).href;
-    const proxy = this.proxyOptions.uri;
+    const host = req.getHeader("host") as string;
 
-    if (!proxy) {
-      debug("Proxy not enabled for URL: %o", url);
+    if (bypassProxy(host, this._options.noProxy)) {
       return opts.secureEndpoint ? this.httpsAgent : this.httpAgent;
     }
 
-    debug("Request URL: %o", url);
-    debug("Proxy URL: %o", proxy);
-
     // Attempt to get a cached `http.Agent` instance first
-    const cacheKey = `${protocol}+${proxy}`;
+    const cacheKey = `${protocol}+${this._options.uri}`;
     let agent = this.cache.get(cacheKey);
-    if (agent) {
-      debug("Cache hit for proxy URL: %o", proxy);
-    } else {
-      const proxyUrl = new URL(proxy);
+    if (!agent) {
+      const proxyUrl = new URL(this._options.uri);
       const proxyProto = proxyUrl.protocol.replace(":", "");
       if (!isValidProtocol(proxyProto)) {
-        throw new Error(`Unsupported protocol for proxy URL: ${proxy}`);
+        throw new Error(
+          `Unsupported protocol for proxy URL: ${this._options.uri}`,
+        );
       }
       const Ctor =
         proxies[proxyProto][opts.secureEndpoint || isWebSocket ? 1 : 0];
-      // @ts-expect-error meh…
-      agent = new Ctor(proxy, this.connectOpts);
+      agent = new (Ctor as any)(this._options.uri, this._options);
       this.cache.set(cacheKey, agent);
     }
 

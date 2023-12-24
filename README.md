@@ -111,7 +111,9 @@ Node.js has no built-in support for HTTP Proxies for fetch (see [nodejs/undici#1
 
 This package bundles a compact and simple proxy-supported solution for both Node.js versions without native fetch using [HTTP Agent](https://github.com/TooTallNate/proxy-agents/tree/main/packages/proxy-agent) and versions with native fetch using [Undici Proxy Agent](https://undici.nodejs.org/#/docs/api/ProxyAgent).
 
-By default, `https_proxy`, `http_proxy`, `HTTPS_PROXY`, and `HTTP_PROXY` environment variables will be checked and used (in order) for the proxy and if not any of them are set, the proxy will be disabled.
+By default, `https_proxy`, `http_proxy`, `HTTPS_PROXY`, and `HTTP_PROXY` environment variables will be checked and used (in order) for the proxy and if not any of them are set, the proxy will be disabled. You can override it using `url` option passed to `createFetch` and `createProxy` utils.
+
+By default, `no_proxy` and `NO_PROXY` environment variables will be checked and used for the (comma seperated) list of hosts to ignore proxy for. You can override it using `noProxy` option passed to `createFetch` and `createProxy` utils. The enties staring with a dot will be used to check domain and also any subdomain.
 
 > [!NOTE]
 > Using export conditions, this utility adds proxy support for Node.js and for other runtimes, it will simply return native fetch.
