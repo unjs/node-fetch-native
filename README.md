@@ -124,7 +124,7 @@ You can simply import `{ fetch }` from `node-fetch-native/proxy` with a preconfi
 ```ts
 import { fetch } from "node-fetch-native/proxy";
 
-console.log(await fetch("https://icanhazip.com"));
+console.log(await fetch("https://icanhazip.com").then((r) => r.text());
 ```
 
 ### `createFetch` utility
@@ -136,7 +136,7 @@ import { createFetch } from "node-fetch-native/proxy";
 
 const fetch = createFetch({ url: "http://localhost:9080" });
 
-console.log(await fetch("https://icanhazip.com"));
+console.log(await fetch("https://icanhazip.com").then((r) => r.text());
 ```
 
 ### `createProxy` utility
@@ -150,7 +150,7 @@ import { createProxy } from "node-fetch-native/proxy";
 const proxy = createProxy();
 // const proxy = createProxy({ url: "http://localhost:8080" });
 
-console.log(await fetch("https://icanhazip.com", { ...proxy }));
+console.log(await fetch("https://icanhazip.com", { ...proxy }).then((r) => r.text());
 ```
 
 ## Alias to `node-fetch`
