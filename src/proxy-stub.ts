@@ -4,3 +4,9 @@ export function createProxy() {
     dispatcher: undefined,
   };
 }
+
+export function createFetch() {
+  return globalThis.fetch;
+}
+
+export const fetch = globalThis.fetch;

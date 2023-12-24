@@ -93,7 +93,7 @@ You have two ways to do this:
 
 Using the polyfill method, we can ensure global fetch is available in the environment and all files. Natives are always preferred.
 
-**Note:** I don't recommend this if you are authoring a library! Please prefer explicit methods.
+**Note:** I don't recommend this if you are authoring a library! Please prefer the explicit methods.
 
 ```js
 // ESM
@@ -109,33 +109,51 @@ require("node-fetch-native/polyfill");
 
 Node.js has no built-in support for HTTP Proxies for fetch (see [nodejs/undici#1650](https://github.com/nodejs/undici/issues/1650) and [nodejs/node#8381](https://github.com/nodejs/node/issues/8381))
 
-This package bundles a compact and simple proxy supported for both Node.js versions without native fetch using [HTTP Agent](https://github.com/TooTallNate/proxy-agents/tree/main/packages/proxy-agent) and versions with native fetch using [Undici Proxy Agent](https://undici.nodejs.org/#/docs/api/ProxyAgent).
+This package bundles a compact and simple proxy-supported solution for both Node.js versions without native fetch using [HTTP Agent](https://github.com/TooTallNate/proxy-agents/tree/main/packages/proxy-agent) and versions with native fetch using [Undici Proxy Agent](https://undici.nodejs.org/#/docs/api/ProxyAgent).
 
-**Usage:**
+By default, `HTTP_PROXY`, `http_proxy`, `HTTPS_PROXY`, and `https_proxy` environment variables will be used for the proxy and if not any of them are set, the proxy will be disabled.
+
+> [!NOTE]
+> Using export conditions, this utility adds proxy support for Node.js and for other runtimes, it will simply return native fetch.
+
+> [!IMPORTANT]
+> Proxy support is under development. Check [unjs/node-fetch-native#107](https://github.com/unjs/node-fetch-native/issues/107) for the roadmap and contributing!
+
+### `fetch` with proxy support
+
+You can simply import `{ fetch }` from `node-fetch-native/proxy` with a preconfigured `fetch` function that has proxy support.
 
 ```ts
-import { fetch } from "node-fetch-native"; // or use global fetch
-import { createProxy } from "node-fetch-native/proxy";
+import { fetch } from "node-fetch-native/proxy";
 
-// Uses HTTPS_PROXY or HTTP_PROXY environment variables
-const proxy = createProxy();
-
-// const proxy = createProxy({ url: "http://localhost:8080" });
-
-await fetch("https://google.com", {
-  ...proxy,
-});
+console.log(await fetch("https://icanhazip.com").then((r) => r.text());
 ```
 
-`createProxy` returns an object with `agent` for older Node.js versions and `dispatcher` keys for newer Node.js versions with Undici and native fetch.
+### `createFetch` utility
 
-If no `url` option is provided, `HTTPS_PROXY` or `HTTP_PROXY` (or lowercase) environment variables will be used, and if they also are not set, both `agent` and `dispatcher` values will be undefined.
+You can use `createFetch` utility to intantiate a `fetch` instance with custom proxy options.
 
-> [!NOTE]
-> Using export conditions, this utility works in Node.js and for other runtimes, it will simply return a stubbed version as most of the other runtimes now support HTTP proxy out of the box!
+```ts
+import { createFetch } from "node-fetch-native/proxy";
 
-> [!NOTE]
-> Proxy support is under development. Check [unjs/node-fetch-native#107](https://github.com/unjs/node-fetch-native/issues/107) for the roadmap and contributing!
+const fetch = createFetch({ url: "http://localhost:9080" });
+
+console.log(await fetch("https://icanhazip.com").then((r) => r.text());
+```
+
+### `createProxy` utility
+
+`createProxy` returns an object with `agent` and `dispatcher` keys that can be passed as fetch options.
+
+```ts
+import { fetch } from "node-fetch-native";
+import { createProxy } from "node-fetch-native/proxy";
+
+const proxy = createProxy();
+// const proxy = createProxy({ url: "http://localhost:8080" });
+
+console.log(await fetch("https://icanhazip.com", { ...proxy }).then((r) => r.text());
+```
 
 ## Alias to `node-fetch`
 
@@ -184,9 +202,7 @@ Using [pnpm.overrides](https://pnpm.io/package_json#pnpmoverrides):
 
 ## License
 
-Made with 💛
-
-[node-fetch is published under the MIT license](https://github.com/node-fetch/node-fetch/blob/main/LICENSE.md)
+Made with 💛 Published under the [MIT](./LICENSE) license.
 
 <!-- Badges -->
 

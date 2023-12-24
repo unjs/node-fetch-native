@@ -3,9 +3,10 @@
     "target": "ESNext",
     "module": "ESNext",
     "moduleResolution": "Node",
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "paths": {
+      "node-fetch-native": ["."]
+    }
   },
-  "include": [
-    "src"
-  ]
+  "include": ["src"]
 }
