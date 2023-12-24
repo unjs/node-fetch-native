@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## v1.6.0
+
+[compare changes](https://github.com/unjs/node-fetch-native/compare/v1.5.1...v1.6.0)
+
+### 🚀 Enhancements
+
+- **proxy:** Export `fetch` and `createFetch` ([#108](https://github.com/unjs/node-fetch-native/pull/108))
+- **proxy:** Support no_proxy ([#109](https://github.com/unjs/node-fetch-native/pull/109))
+
+### 🩹 Fixes
+
+- **proxy:** Update environment variable check order ([742d27e](https://github.com/unjs/node-fetch-native/commit/742d27e))
+
+### ❤️ Contributors
+
+- Pooya Parsa ([@pi0](http://github.com/pi0))
+
 ## v1.5.1
 
 [compare changes](https://github.com/unjs/node-fetch-native/compare/v1.5.0...v1.5.1)
