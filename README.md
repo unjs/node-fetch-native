@@ -93,7 +93,7 @@ You have two ways to do this:
 
 Using the polyfill method, we can ensure global fetch is available in the environment and all files. Natives are always preferred.
 
-**Note:** I don't recommend this if you are authoring a library! Please prefer explicit methods.
+**Note:** I don't recommend this if you are authoring a library! Please prefer the explicit methods.
 
 ```js
 // ESM
@@ -109,9 +109,9 @@ require("node-fetch-native/polyfill");
 
 Node.js has no built-in support for HTTP Proxies for fetch (see [nodejs/undici#1650](https://github.com/nodejs/undici/issues/1650) and [nodejs/node#8381](https://github.com/nodejs/node/issues/8381))
 
-This package bundles a compact and simple proxy supported solution for both Node.js versions without native fetch using [HTTP Agent](https://github.com/TooTallNate/proxy-agents/tree/main/packages/proxy-agent) and versions with native fetch using [Undici Proxy Agent](https://undici.nodejs.org/#/docs/api/ProxyAgent).
+This package bundles a compact and simple proxy-supported solution for both Node.js versions without native fetch using [HTTP Agent](https://github.com/TooTallNate/proxy-agents/tree/main/packages/proxy-agent) and versions with native fetch using [Undici Proxy Agent](https://undici.nodejs.org/#/docs/api/ProxyAgent).
 
-By default, `HTTP_PROXY`, `http_proxy`, `HTTPS_PROXY` and `https_proxy` environment variables will be used for proxy and if not any of them set, proxy will be disabled.
+By default, `HTTP_PROXY`, `http_proxy`, `HTTPS_PROXY`, and `https_proxy` environment variables will be used for the proxy and if not any of them are set, the proxy will be disabled.
 
 > [!NOTE]
 > Using export conditions, this utility adds proxy support for Node.js and for other runtimes, it will simply return native fetch.
@@ -202,9 +202,8 @@ Using [pnpm.overrides](https://pnpm.io/package_json#pnpmoverrides):
 
 ## License
 
-Made with 💛
+Made with 💛 Published under the [MIT](./LICENSE.md) licenses.
 
-[node-fetch is published under the MIT license](https://github.com/node-fetch/node-fetch/blob/main/LICENSE.md)
 
 <!-- Badges -->
 
