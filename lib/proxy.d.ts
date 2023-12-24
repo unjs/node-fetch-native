@@ -11,11 +11,11 @@ export type ProxyOptions = {
   url?: string;
 
   /**
-   * List of hosts to skip proxy for (comma seperated or array of strings)
+   * List of hosts to skip proxy for (comma separated or array of strings)
    *
    * Default is read from `no_proxy` or `NO_PROXY` environment variables
    *
-   * Hots starting with a leading dot like `.foo.com` are also matched against domain and all its subdomains like `bar.foo.com`
+   * Hots starting with a leading dot, like `.foo.com` are also matched against domain and all its subdomains like `bar.foo.com`
    */
   noProxy?: string | string[];
 };
