@@ -1,6 +1,5 @@
-import { fetch } from "node-fetch-native/proxy";
+import { createFetch } from "node-fetch-native/proxy";
 
-process.env.HTTPS_PROXY = "http://localhost:9080";
-process.env.DEBUG = "true";
+const fetch = createFetch({ url: "http://localhost:9080" });
 
 console.log(await fetch("https://icanhazip.com").then((r) => r.text()));
