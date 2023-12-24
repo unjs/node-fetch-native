@@ -202,8 +202,7 @@ Using [pnpm.overrides](https://pnpm.io/package_json#pnpmoverrides):
 
 ## License
 
-Made with 💛 Published under the [MIT](./LICENSE.md) licenses.
-
+Made with 💛 Published under the [MIT](./LICENSE) license.
 
 <!-- Badges -->
 
