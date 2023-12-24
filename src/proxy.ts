@@ -8,45 +8,6 @@ import { HttpsProxyAgent } from "https-proxy-agent";
 import type { ProxyOptions } from "../proxy";
 import { fetch as _fetch } from "node-fetch-native";
 
-export function createProxy(opts: ProxyOptions = {}) {
-  const uri =
-    opts.url ||
-    process.env.https_proxy ||
-    process.env.http_proxy ||
-    process.env.HTTPS_PROXY ||
-    process.env.HTTP_PROXY;
-
-  if (!uri) {
-    return {
-      agent: undefined,
-      dispatcher: undefined,
-    };
-  }
-
-  const _noProxy = opts.noProxy || process.env.no_proxy || process.env.NO_PROXY;
-  const noProxy = typeof _noProxy === "string" ? _noProxy.split(",") : _noProxy;
-
-  const nodeAgent = new NodeProxyAgent({ uri, noProxy });
-
-  // https://undici.nodejs.org/#/docs/api/ProxyAgent
-  const undiciAgent = new UndiciProxyAgent({
-    uri,
-    noProxy,
-  });
-
-  return {
-    agent: nodeAgent,
-    dispatcher: undiciAgent,
-  };
-}
-
-export function createFetch(proxyOptions: ProxyOptions = {}) {
-  const proxy = createProxy(proxyOptions);
-  return (url, fetchOptions) => _fetch(url, { ...proxy, ...fetchOptions });
-}
-
-export const fetch = createFetch({});
-
 // ----------------------------------------------
 // Utils
 // ----------------------------------------------
@@ -170,3 +131,46 @@ class NodeProxyAgent extends Agent {
     super.destroy();
   }
 }
+
+// ----------------------------------------------
+// Main exports
+// ----------------------------------------------
+
+export function createProxy(opts: ProxyOptions = {}) {
+  const uri =
+    opts.url ||
+    process.env.https_proxy ||
+    process.env.http_proxy ||
+    process.env.HTTPS_PROXY ||
+    process.env.HTTP_PROXY;
+
+  if (!uri) {
+    return {
+      agent: undefined,
+      dispatcher: undefined,
+    };
+  }
+
+  const _noProxy = opts.noProxy || process.env.no_proxy || process.env.NO_PROXY;
+  const noProxy = typeof _noProxy === "string" ? _noProxy.split(",") : _noProxy;
+
+  const nodeAgent = new NodeProxyAgent({ uri, noProxy });
+
+  // https://undici.nodejs.org/#/docs/api/ProxyAgent
+  const undiciAgent = new UndiciProxyAgent({
+    uri,
+    noProxy,
+  });
+
+  return {
+    agent: nodeAgent,
+    dispatcher: undiciAgent,
+  };
+}
+
+export function createFetch(proxyOptions: ProxyOptions = {}) {
+  const proxy = createProxy(proxyOptions);
+  return (url, fetchOptions) => _fetch(url, { ...proxy, ...fetchOptions });
+}
+
+export const fetch = createFetch({});
