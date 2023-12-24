@@ -11,10 +11,10 @@ import { fetch as _fetch } from "node-fetch-native";
 export function createProxy(opts: ProxyOptions = {}) {
   const uri =
     opts.url ||
-    process.env.HTTPS_PROXY ||
     process.env.https_proxy ||
-    process.env.HTTP_PROXY ||
-    process.env.http_proxy;
+    process.env.http_proxy ||
+    process.env.HTTPS_PROXY ||
+    process.env.HTTP_PROXY;
 
   if (!uri) {
     return {
