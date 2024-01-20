@@ -123,8 +123,8 @@
     "test": "pnpm lint && pnpm build && vitest run --coverage"
   },
   "devDependencies": {
-    "@types/node": "^20.11.4",
-    "@vitest/coverage-v8": "^1.2.0",
+    "@types/node": "^20.11.5",
+    "@vitest/coverage-v8": "^1.2.1",
     "abort-controller": "^3.0.0",
     "agent-base": "^7.1.0",
     "changelogen": "^0.5.5",
@@ -133,12 +133,12 @@
     "http-proxy-agent": "^7.0.0",
     "https-proxy-agent": "^7.0.2",
     "node-fetch": "^3.3.2",
-    "prettier": "^3.2.2",
+    "prettier": "^3.2.4",
     "proxy-agent": "^6.3.1",
     "typescript": "^5.3.3",
     "unbuild": "^2.0.0",
-    "undici": "^6.3.0",
-    "vitest": "^1.2.0"
+    "undici": "^6.4.0",
+    "vitest": "^1.2.1"
   },
   "packageManager": "pnpm@8.14.1"
 }
