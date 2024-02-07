@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## v1.6.2
+
+[compare changes](https://github.com/unjs/node-fetch-native/compare/v1.6.1...v1.6.2)
+
+### 📦 Build
+
+- Remove non existing `node.import` condition ([#115](https://github.com/unjs/node-fetch-native/pull/115))
+
+### 🏡 Chore
+
+- Update deps ([c3f9f18](https://github.com/unjs/node-fetch-native/commit/c3f9f18))
+
+### ❤️ Contributors
+
+- Pooya Parsa ([@pi0](http://github.com/pi0))
+- Thomas Kjærgaard ([@tkjaergaard](http://github.com/tkjaergaard))
+
 ## v1.6.1
 
 [compare changes](https://github.com/unjs/node-fetch-native/compare/v1.6.0...v1.6.1)
