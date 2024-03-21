@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## v1.6.4
+
+[compare changes](https://github.com/unjs/node-fetch-native/compare/v1.6.3...v1.6.4)
+
+### 📦 Build
+
+- Remove `node> require` condition for `/proxy` subpath ([ff7f506](https://github.com/unjs/node-fetch-native/commit/ff7f506))
+
+### ❤️ Contributors
+
+- Pooya Parsa ([@pi0](http://github.com/pi0))
+
 ## v1.6.3
 
 [compare changes](https://github.com/unjs/node-fetch-native/compare/v1.6.2...v1.6.3)
