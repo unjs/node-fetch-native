@@ -81,10 +81,8 @@
     },
     "./proxy": {
       "node": {
-        "require": {
-          "types": "./lib/proxy.d.ts",
-          "default": "./dist/proxy.cjs"
-        }
+        "types": "./lib/proxy.d.ts",
+        "default": "./dist/proxy.cjs"
       },
       "default": {
         "import": {
