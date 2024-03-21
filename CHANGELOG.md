@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## v1.6.3
+
+[compare changes](https://github.com/unjs/node-fetch-native/compare/v1.6.2...v1.6.3)
+
+### 🏡 Chore
+
+- Update lockfile ([889926a](https://github.com/unjs/node-fetch-native/commit/889926a))
+
+### ❤️ Contributors
+
+- Pooya Parsa ([@pi0](http://github.com/pi0))
+
 ## v1.6.2
 
 [compare changes](https://github.com/unjs/node-fetch-native/compare/v1.6.1...v1.6.2)
