@@ -21,14 +21,7 @@ export {
 
 const _forceNodeFetch = !!globalThis.process?.env?.FORCE_NODE_FETCH;
 
-function _getFetch() {
-  if (!_forceNodeFetch && globalThis.fetch) {
-    return globalThis.fetch;
-  }
-  return _fetch;
-}
-
-export const fetch = _getFetch();
+export const fetch = (!_forceNodeFetch && globalThis.fetch) || _fetch;
 export default fetch;
 
 export const Blob = (!_forceNodeFetch && globalThis.Blob) || _Blob;
