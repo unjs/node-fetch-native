@@ -117,7 +117,7 @@
     "test": "pnpm lint && pnpm build && vitest run --coverage"
   },
   "devDependencies": {
-    "@types/node": "^20.11.30",
+    "@types/node": "^22.10.7",
     "@vitest/coverage-v8": "^1.4.0",
     "abort-controller": "^3.0.0",
     "agent-base": "^7.1.0",
