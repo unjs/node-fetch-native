@@ -128,7 +128,7 @@ You can simply import `{ fetch }` from `node-fetch-native/proxy` with a preconfi
 ```ts
 import { fetch } from "node-fetch-native/proxy";
 
-console.log(await fetch("https://icanhazip.com").then((r) => r.text());
+console.log(await fetch("https://icanhazip.com").then((r) => r.text()));
 ```
 
 ### `createFetch` utility
@@ -140,7 +140,7 @@ import { createFetch } from "node-fetch-native/proxy";
 
 const fetch = createFetch({ url: "http://localhost:9080" });
 
-console.log(await fetch("https://icanhazip.com").then((r) => r.text());
+console.log(await fetch("https://icanhazip.com").then((r) => r.text()));
 ```
 
 ### `createProxy` utility
@@ -154,7 +154,9 @@ import { createProxy } from "node-fetch-native/proxy";
 const proxy = createProxy();
 // const proxy = createProxy({ url: "http://localhost:8080" });
 
-console.log(await fetch("https://icanhazip.com", { ...proxy }).then((r) => r.text());
+console.log(
+  await fetch("https://icanhazip.com", { ...proxy }).then((r) => r.text()),
+);
 ```
 
 ## Alias to `node-fetch`
@@ -169,8 +171,8 @@ Using npm [overrides](https://docs.npmjs.com/cli/v8/configuring-npm/package-json
 // package.json
 {
   "overrides": {
-    "node-fetch": "npm:node-fetch-native@latest"
-  }
+    "node-fetch": "npm:node-fetch-native@latest",
+  },
 }
 ```
 
@@ -182,8 +184,8 @@ Using yarn [selective dependency resolutions](https://classic.yarnpkg.com/lang/e
 // package.json
 {
   "resolutions": {
-    "node-fetch": "npm:node-fetch-native@latest"
-  }
+    "node-fetch": "npm:node-fetch-native@latest",
+  },
 }
 ```
 
@@ -196,9 +198,9 @@ Using [pnpm.overrides](https://pnpm.io/package_json#pnpmoverrides):
 {
   "pnpm": {
     "overrides": {
-      "node-fetch": "npm:node-fetch-native@latest"
-    }
-  }
+      "node-fetch": "npm:node-fetch-native@latest",
+    },
+  },
 }
 ```
 

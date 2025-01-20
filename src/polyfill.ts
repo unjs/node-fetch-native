@@ -13,7 +13,9 @@ function polyfill(name: string, impl: any) {
   if (!(name in globalThis)) {
     try {
       globalThis[name] = impl;
-    } catch {}
+    } catch {
+      // Ignore
+    }
   }
 }
 
