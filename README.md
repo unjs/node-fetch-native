@@ -122,9 +122,6 @@ By default, `no_proxy` and `NO_PROXY` environment variables will be checked and 
 > [!NOTE]
 > Using export conditions, this utility adds proxy support for Node.js and for other runtimes, it will simply return native fetch.
 
-> [!IMPORTANT]
-> Proxy support is under development. Check [unjs/node-fetch-native#107](https://github.com/unjs/node-fetch-native/issues/107) for the roadmap and contributing!
-
 ### `fetch` with proxy support
 
 You can simply import `{ fetch }` from `node-fetch-native/proxy` with a preconfigured `fetch` function that has proxy support.
