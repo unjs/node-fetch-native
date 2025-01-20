@@ -51,8 +51,8 @@ importers:
         specifier: ^3.3.1
         version: 3.3.1(typescript@5.7.3)
       undici:
-        specifier: ^7.2.3
-        version: 7.2.3
+        specifier: ^6.21.1
+        version: 6.21.1
       vitest:
         specifier: ^3.0.2
         version: 3.0.2(@types/node@22.10.7)
@@ -2303,9 +2303,9 @@ packages:
   undici-types@6.20.0:
     resolution: {integrity: sha512-Ny6QZ2Nju20vw1SRHe3d9jVu6gJ+4e3+MMpqu7pqE5HT6WsTSlce++GQmK5UXS8mzV8DSYHrQH+Xrf2jVcuKNg==}
 
-  undici@7.2.3:
-    resolution: {integrity: sha512-2oSLHaDalSt2/O/wHA9M+/ZPAOcU2yrSP/cdBYJ+YxZskiPYDSqHbysLSlD7gq3JMqOoJI5O31RVU3BxX/MnAA==}
-    engines: {node: '>=20.18.1'}
+  undici@6.21.1:
+    resolution: {integrity: sha512-q/1rj5D0/zayJB2FraXdaWxbhWiNKDvu8naDT2dl1yTlvJp4BLtOcp2a5BvgGNQpYYJzau7tf1WgKv3b+7mqpQ==}
+    engines: {node: '>=18.17'}
 
   unist-util-stringify-position@2.0.3:
     resolution: {integrity: sha512-3faScn5I+hy9VleOq/qNbAd6pAx7iH5jYBMS9I1HgQVijz/4mv5Bvw5iw1sC/90CODiKo81G/ps8AJrISn687g==}
@@ -4658,7 +4658,7 @@ snapshots:
 
   undici-types@6.20.0: {}
 
-  undici@7.2.3: {}
+  undici@6.21.1: {}
 
   unist-util-stringify-position@2.0.3:
     dependencies:
