@@ -2,6 +2,31 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## v1.6.6
+
+[compare changes](https://github.com/unjs/node-fetch-native/compare/v1.6.5...v1.6.6)
+
+### 🩹 Fixes
+
+- Improve `DISABLE_NODE_FETCH_NATIVE_WARN` behavior ([#128](https://github.com/unjs/node-fetch-native/pull/128))
+
+### 📖 Documentation
+
+- Remove proxy banner ([7b46934](https://github.com/unjs/node-fetch-native/commit/7b46934))
+
+### 📦 Build
+
+- Downgrade undici to `v6` ([28d16c5](https://github.com/unjs/node-fetch-native/commit/28d16c5))
+
+### 🤖 CI
+
+- Update node to 20 ([1f8bd33](https://github.com/unjs/node-fetch-native/commit/1f8bd33))
+
+### ❤️ Contributors
+
+- Pooya Parsa ([@pi0](http://github.com/pi0))
+- Anton Golub <golub.anton@gmail.com>
+
 ## v1.6.5
 
 [compare changes](https://github.com/unjs/node-fetch-native/compare/v1.6.4...v1.6.5)
