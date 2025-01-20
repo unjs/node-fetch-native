@@ -1,5 +1,0 @@
-dist
-node_modules
-lib/empty.mjs
-lib/empty.cjs
-coverage
