@@ -89,6 +89,10 @@ You have two ways to do this:
 - Set the `FORCE_NODE_FETCH` environment variable before starting the application.
 - Import from `node-fetch-native/node`
 
+## Disable runtime check
+
+Once the `node-fetch-native/node` module is loaded, it pushes a log warning if the current runtime differs from the Node.js. Set the `DISABLE_NODE_FETCH_NATIVE_WARN` environment variable to turn this check off.
+
 ## Polyfill support
 
 Using the polyfill method, we can ensure global fetch is available in the environment and all files. Natives are always preferred.
