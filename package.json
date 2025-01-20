@@ -1,6 +1,6 @@
 {
   "name": "node-fetch-native",
-  "version": "1.6.4",
+  "version": "1.6.5",
   "description": "better fetch for Node.js. Works on any JavaScript runtime!",
   "repository": "unjs/node-fetch-native",
   "license": "MIT",

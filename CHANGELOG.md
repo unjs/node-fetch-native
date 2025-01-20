@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## v1.6.5
+
+[compare changes](https://github.com/unjs/node-fetch-native/compare/v1.6.4...v1.6.5)
+
+### 🏡 Chore
+
+- Update deps ([aad6f69](https://github.com/unjs/node-fetch-native/commit/aad6f69))
+- Update eslint config ([d3cb870](https://github.com/unjs/node-fetch-native/commit/d3cb870))
+- Lint ([39ec744](https://github.com/unjs/node-fetch-native/commit/39ec744))
+
+### ❤️ Contributors
+
+- Pooya Parsa ([@pi0](http://github.com/pi0))
+
 ## v1.6.4
 
 [compare changes](https://github.com/unjs/node-fetch-native/compare/v1.6.3...v1.6.4)
