@@ -131,7 +131,7 @@
     "proxy-agent": "^6.5.0",
     "typescript": "^5.8.2",
     "unbuild": "^3.5.0",
-    "undici": "^6.21.2",
+    "undici": "^7.6.0",
     "vitest": "^3.0.9"
   },
   "packageManager": "pnpm@9.15.9"
