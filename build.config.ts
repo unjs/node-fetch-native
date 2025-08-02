@@ -8,6 +8,7 @@ export default defineBuildConfig({
     emitCJS: true,
     inlineDependencies: true,
     esbuild: {
+      target: 'es2020',
       minify: true,
       minifyIdentifiers: false,
       minifySyntax: false,
