@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## v1.6.7
+
+[compare changes](https://github.com/unjs/node-fetch-native/compare/v1.6.6...v1.6.7)
+
+### 📦 Build
+
+- Build with `es2020` target ([#145](https://github.com/unjs/node-fetch-native/pull/145))
+
+### 🏡 Chore
+
+- Update lockfile ([83ec1f9](https://github.com/unjs/node-fetch-native/commit/83ec1f9))
+
+### ❤️ Contributors
+
+- Pooya Parsa ([@pi0](https://github.com/pi0))
+- Lumirelle ([@lumirelle](https://github.com/lumirelle))
+
 ## v1.6.6
 
 [compare changes](https://github.com/unjs/node-fetch-native/compare/v1.6.5...v1.6.6)
