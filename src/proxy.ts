@@ -22,8 +22,18 @@ function bypassProxy(host: string, noProxy: string[]) {
   if (!noProxy) {
     return false;
   }
+  // Strip port from host if present (e.g., "example.com:8080" -> "example.com")
+  // Also handles IPv6 brackets (e.g., "[::1]:8080" -> "::1")
+  let hostname = host;
+  if (host.startsWith("[") && host.includes("]")) {
+    // IPv6: [::1] or [::1]:port
+    hostname = host.slice(1, host.indexOf("]"));
+  } else if (host.includes(":")) {
+    // IPv4 or hostname with port
+    hostname = host.split(":")[0];
+  }
   for (const _host of noProxy) {
-    if (_host === host || (_host[0] === "." && host.endsWith(_host.slice(1)))) {
+    if (_host === hostname || (_host[0] === "." && hostname.endsWith(_host.slice(1)))) {
       return true;
     }
   }
