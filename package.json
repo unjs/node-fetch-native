@@ -122,7 +122,7 @@
     "abort-controller": "^3.0.0",
     "agent-base": "^7.1.4",
     "changelogen": "^0.6.2",
-    "eslint": "^9.38.0",
+    "eslint": "^10.9.1",
     "eslint-config-unjs": "^0.5.0",
     "http-proxy-agent": "^7.0.2",
     "https-proxy-agent": "^7.0.6",
