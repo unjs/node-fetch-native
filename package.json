@@ -80,20 +80,25 @@
       }
     },
     "./proxy": {
+      "browser": "./dist/proxy-stub.mjs",
+      "bun": "./dist/proxy-stub.mjs",
+      "deno": "./dist/proxy-stub.mjs",
+      "edge-light": "./dist/proxy-stub.mjs",
+      "edge-routine": "./dist/proxy-stub.mjs",
+      "lagon": "./dist/proxy-stub.mjs",
+      "netlify": "./dist/proxy-stub.mjs",
+      "react-native": "./dist/proxy-stub.mjs",
+      "wintercg": "./dist/proxy-stub.mjs",
+      "worker": "./dist/proxy-stub.mjs",
+      "workerd": "./dist/proxy-stub.mjs",
       "node": {
         "types": "./lib/proxy.d.ts",
         "default": "./dist/proxy.cjs"
       },
-      "default": {
-        "import": {
-          "types": "./lib/proxy.d.ts",
-          "default": "./dist/proxy-stub.mjs"
-        },
-        "require": {
-          "types": "./lib/proxy.d.ts",
-          "default": "./dist/proxy-stub.cjs"
-        }
-      }
+      "types": "./lib/proxy.d.ts",
+      "import": "./dist/proxy-stub.mjs",
+      "require": "./dist/proxy-stub.cjs",
+      "default": "./dist/proxy-stub.mjs"
     }
   },
   "main": "./lib/index.cjs",
